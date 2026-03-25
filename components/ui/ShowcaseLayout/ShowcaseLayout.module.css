@@ -1,0 +1,580 @@
+.window {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+}
+
+.windowNarrow {
+  width: min(100%, 259px);
+}
+
+.windowWide {
+  width: min(100%, 570px);
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 4px 4px 8px;
+  background: #12008a;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.titleButton {
+  cursor: default;
+}
+
+.windowBody {
+  display: grid;
+  gap: 22px;
+  padding: 20px 20px 18px;
+}
+
+.section {
+  display: grid;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.sectionBody {
+  display: grid;
+  gap: 20px;
+}
+
+.stateRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 28px;
+}
+
+.stateLabel,
+.iconLabel {
+  font-size: 11px;
+  line-height: 1;
+  color: #111111;
+}
+
+.divider {
+  height: 4px;
+  background:
+    linear-gradient(to bottom, #808080 0 2px, transparent 2px),
+    linear-gradient(to right, #ffffff, #ffffff);
+}
+
+.iconList,
+.alertList {
+  display: grid;
+  gap: 14px;
+}
+
+.iconRow {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.iconCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12px;
+}
+
+.alertCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.tabWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  min-height: 37px;
+  padding: 10px 14px;
+  background: #c0c0c0;
+}
+
+.tabWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tabDefault::before {
+  box-shadow:
+    inset 2px 0 0 #ffffff,
+    inset 0 2px 0 #ffffff,
+    inset -2px 0 0 #000000,
+    inset -4px 0 0 #808080;
+}
+
+.tabActive::before {
+  box-shadow:
+    inset 2px 0 0 #ffffff,
+    inset 0 2px 0 #ffffff,
+    inset -2px 0 0 #000000,
+    inset -4px 0 0 #808080,
+    inset 0 -2px 0 #c0c0c0;
+}
+
+.tabDefault {
+  margin-top: 4px;
+  min-height: 33px;
+}
+
+.tabLabel {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+}
+
+.progressFrame {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  min-height: 36px;
+}
+
+.progressStep {
+  width: 20px;
+  height: 28px;
+  background: #12008a;
+}
+
+.fieldset {
+  min-width: 0;
+  padding: 12px 12px 10px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.fieldsetLegend {
+  padding: 0 6px;
+  font-size: 11px;
+}
+
+.fieldsetBody {
+  display: grid;
+  gap: 10px;
+}
+
+.fieldsetOptions {
+  display: grid;
+  gap: 8px;
+}
+
+.sliderThumb {
+  display: inline-block;
+  width: 18px;
+  height: 32px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+}
+
+.sliderTrack {
+  display: inline-block;
+  width: 80px;
+  height: 8px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #c0c0c0;
+}
+
+.sliderControl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 80px;
+  height: 32px;
+}
+
+.sliderControl .sliderTrack {
+  width: 100%;
+}
+
+.sliderControl .sliderThumb {
+  position: absolute;
+  left: 30px;
+  top: 0;
+}
+
+.inputsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+
+.inputExample {
+  display: grid;
+  gap: 4px;
+}
+
+.horizontalField {
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontalField .inputLabel {
+  min-width: 0;
+}
+
+.inputLabel {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.inputShell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 5px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.inputShellFocused {
+  box-shadow: inset 0 0 0 1px #000000;
+}
+
+.inputShellDisabled {
+  background: #c0c0c0;
+  color: #808080;
+}
+
+.inputFocusRing {
+  position: absolute;
+  inset: 3px;
+  border: 1px dotted #000000;
+  pointer-events: none;
+}
+
+.inputValue {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #111111;
+  background: #12008a;
+}
+
+.spinnerGroup {
+  display: grid;
+  gap: 2px;
+}
+
+.smallActionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background: #c0c0c0;
+}
+
+.smallActionContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smallChevron {
+  transform: scale(0.7);
+}
+
+.selectSupplement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 180px);
+  gap: 18px;
+}
+
+.selectionList,
+.comboBox {
+  display: grid;
+  gap: 4px;
+}
+
+.selectionHeader {
+  background: #c0c0c0;
+}
+
+.dropdownSurface,
+.comboSuggestions {
+  display: grid;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.dropdownOption {
+  padding: 5px 8px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.dropdownOptionActive {
+  color: #ffffff;
+  background: #12008a;
+}
+
+.dropdownOptionChecked {
+  font-weight: 700;
+}
+
+.dropdownDivider {
+  height: 4px;
+  background:
+    linear-gradient(to bottom, #808080 0 2px, transparent 2px),
+    linear-gradient(to right, #ffffff, #ffffff);
+}
+
+.optionStates {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.choiceGrid {
+  display: grid;
+  gap: 10px;
+}
+
+.choiceRow {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.choiceRowDisabled {
+  color: #808080;
+}
+
+.checkControl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.checkControlFocused::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px dotted #000000;
+}
+
+.checkControlDisabled {
+  background: #c0c0c0;
+}
+
+.radioControl {
+  border-radius: 50%;
+}
+
+.radioDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #111111;
+}
+
+.choiceLabel {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.choiceLabelFocused {
+  display: inline-block;
+  padding: 1px 2px;
+  border: 1px dotted #000000;
+}
+
+.symbolIcon {
+  display: block;
+}
+
+.symbolSmall {
+  width: 8px;
+  height: 8px;
+}
+
+.symbolDefault {
+  width: 12px;
+  height: 12px;
+}
+
+.alertIcon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.iconSolidFill {
+  fill: #111111;
+}
+
+.iconDisabledFill {
+  fill: #808080;
+}
+
+.iconShadowFill {
+  fill: #ffffff;
+}
+
+.iconSolidStroke {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.iconDisabledStroke {
+  fill: none;
+  stroke: #808080;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.iconShadowStroke {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.iconRect {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1.5;
+}
+
+.iconDisabledRect {
+  fill: none;
+  stroke: #808080;
+  stroke-width: 1.5;
+}
+
+.iconShadowRect {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+.iconText,
+.iconDisabledText,
+.iconShadowText {
+  font-size: 11px;
+  font-family: Tahoma, "MS Sans Serif", sans-serif;
+  font-weight: 700;
+}
+
+.iconText {
+  fill: #111111;
+}
+
+.iconDisabledText {
+  fill: #808080;
+}
+
+.iconShadowText {
+  fill: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .windowWide {
+    width: min(100%, 570px);
+  }
+
+  .selectSupplement {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .inputsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .windowBody {
+    padding: 18px 14px 16px;
+  }
+
+  .stateRow {
+    column-gap: 18px;
+  }
+
+  .horizontalField {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

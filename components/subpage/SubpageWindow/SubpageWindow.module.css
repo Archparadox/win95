@@ -1,0 +1,71 @@
+.subpageShell {
+  min-height: 100vh;
+  padding: 24px 20px 72px;
+  display: grid;
+  place-items: start center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 30%),
+    linear-gradient(90deg, #008080, #0d5f5f);
+}
+
+.chromeWindow {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  background: #c0c0c0;
+  box-shadow: 1px 1px 0 0 #808080;
+}
+
+.window {
+  width: min(100%, 880px);
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 20px;
+  padding: 2px 4px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #000080, #1084d0);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.titleButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.titleButton {
+  cursor: default;
+}
+
+.windowBody {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.kicker {
+  color: #303030;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  gap: 14px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  font-weight: 700;
+}

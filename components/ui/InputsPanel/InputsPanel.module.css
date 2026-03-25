@@ -1,0 +1,388 @@
+.panel {}
+
+.liveGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+
+.liveField {
+  display: grid;
+  gap: 4px;
+}
+
+.nativeInput,
+.liveColorField,
+.liveSelectTrigger {
+  width: 100%;
+  min-height: 28px;
+  padding: 4px 5px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+  font: inherit;
+}
+
+.nativeInput:focus,
+.liveSelectTrigger:focus,
+.liveSpinnerButton:focus,
+.liveSuggestion:focus,
+.liveChoice:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -3px;
+}
+
+.liveNumberField {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px;
+}
+
+.liveSpinner {
+  display: grid;
+  gap: 2px;
+  margin-left: 2px;
+}
+
+.liveSpinnerButton,
+.liveSelectArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  min-width: 18px;
+  height: 13px;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background: #c0c0c0;
+}
+
+.liveColorField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.liveColorInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.liveColorSwatch {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #111111;
+  flex: 0 0 auto;
+}
+
+.liveSelect {
+  position: relative;
+}
+
+.liveSelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+}
+
+.liveSelectMenu,
+.liveSuggestionList {
+  display: grid;
+  margin-top: 4px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.liveSelectOption,
+.liveSuggestion,
+.liveChoice {
+  padding: 5px 8px;
+  background: #ffffff;
+  border: 0;
+  text-align: left;
+  font: inherit;
+}
+
+.liveSelectOption:hover,
+.liveSelectOptionActive,
+.liveSuggestion:hover,
+.liveChoice:hover {
+  color: #ffffff;
+  background: #12008a;
+}
+
+.liveRadioGroup {
+  display: grid;
+  gap: 6px;
+}
+
+.liveChoice {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.liveReadout {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.inputsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+
+.inputExample {
+  display: grid;
+  gap: 4px;
+}
+
+.horizontalField {
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.horizontalField .inputLabel {
+  min-width: 0;
+}
+
+.inputLabel {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.inputShell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 5px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.inputShellFocused {
+  box-shadow: inset 0 0 0 1px #000000;
+}
+
+.inputShellDisabled {
+  background: #c0c0c0;
+  color: #808080;
+}
+
+.inputFocusRing {
+  position: absolute;
+  inset: 3px;
+  border: 1px dotted #000000;
+  pointer-events: none;
+}
+
+.inputValue {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.colorSwatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #111111;
+  background: #12008a;
+}
+
+.spinnerGroup {
+  display: grid;
+  gap: 2px;
+}
+
+.smallActionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background: #c0c0c0;
+}
+
+.smallActionContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smallChevron {
+  transform: scale(0.7);
+}
+
+.selectSupplement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 180px);
+  gap: 18px;
+}
+
+.selectionList,
+.comboBox {
+  display: grid;
+  gap: 4px;
+}
+
+.selectionHeader {
+  background: #c0c0c0;
+}
+
+.dropdownSurface,
+.comboSuggestions {
+  display: grid;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.dropdownOption {
+  padding: 5px 8px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.dropdownOptionActive {
+  color: #ffffff;
+  background: #12008a;
+}
+
+.dropdownOptionChecked {
+  font-weight: 700;
+}
+
+.dropdownDivider {
+  height: 4px;
+  background:
+    linear-gradient(to bottom, #808080 0 2px, transparent 2px),
+    linear-gradient(to right, #ffffff, #ffffff);
+}
+
+.optionStates {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.choiceGrid {
+  display: grid;
+  gap: 10px;
+}
+
+.choiceRow {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.choiceRowDisabled {
+  color: #808080;
+}
+
+.checkControl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #ffffff;
+}
+
+.checkControlFocused::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px dotted #000000;
+}
+
+.checkControlDisabled {
+  background: #c0c0c0;
+}
+
+.radioControl {
+  border-radius: 50%;
+}
+
+.radioDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #111111;
+}
+
+.choiceLabel {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.choiceLabelFocused {
+  display: inline-block;
+  padding: 1px 2px;
+  border: 1px dotted #000000;
+}
+
+@media (max-width: 900px) {
+  .selectSupplement {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .liveGrid,
+  .inputsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .horizontalField {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

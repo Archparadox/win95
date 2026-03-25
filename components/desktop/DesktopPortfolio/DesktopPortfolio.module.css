@@ -1,0 +1,144 @@
+:root {
+  --desktop: #008080;
+  --desktop-detail: #0d5f5f;
+  --surface: #c0c0c0;
+  --surface-light: #dfdfdf;
+  --surface-dark: #808080;
+  --surface-deep: #404040;
+  --text: #111111;
+  --text-muted: #303030;
+  --accent: #000080;
+  --accent-inactive: #7b7b7b;
+  --taskbar-height: 32px;
+}
+
+.desktopShell {
+  --desktop-cursor: url("/cursors/arrow.svg") 1 1, default;
+  min-height: 100vh;
+  padding: 6px 8px calc(var(--taskbar-height) + 10px);
+  color: var(--text);
+  background: var(--desktop);
+  font-size: 11px;
+  line-height: 1.2;
+  cursor: var(--desktop-cursor);
+}
+
+.win95Desktop {
+  position: relative;
+}
+
+.desktopShell * {
+  cursor: var(--desktop-cursor) !important;
+}
+
+.loading {
+  --desktop-cursor: url("/cursors/hourglass.svg") 9 12, progress;
+}
+
+.desktopArea {
+  position: absolute;
+  inset: 8px 0 var(--taskbar-height) 0;
+}
+
+.windowLayer {
+  position: absolute;
+  inset: 4px 0 var(--taskbar-height);
+  pointer-events: none;
+}
+
+.selectionBox {
+  position: absolute;
+  border: 1px dotted #ffffff;
+  background: rgba(0, 0, 128, 0.18);
+  pointer-events: none;
+}
+
+.pageContent {
+  display: grid;
+  gap: 6px;
+}
+
+.kicker,
+.sectionLabel {
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.insetPanel {
+  border-top: 2px solid var(--surface-dark);
+  border-left: 2px solid var(--surface-dark);
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: var(--surface);
+  padding: 6px;
+}
+
+.stackList,
+.detailList {
+  display: grid;
+  gap: 2px;
+  margin-top: 6px;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.compactList {
+  margin-top: 8px;
+}
+
+.timeline {
+  display: grid;
+  gap: 6px;
+}
+
+.timelineItem h3 {
+  margin-bottom: 8px;
+}
+
+.contactCard {
+  display: grid;
+  gap: 2px;
+}
+
+.winButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 21px;
+  padding: 1px 10px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  background: var(--surface);
+  font-weight: 700;
+  box-shadow: inset 1px 1px 0 0 #dfdfdf;
+}
+
+.activeButton {
+  background: var(--surface-light);
+}
+
+@media (max-width: 640px) {
+  .desktopShell {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .desktopArea {
+    position: relative;
+    inset: auto;
+    min-height: 320px;
+    margin-bottom: 12px;
+  }
+
+  .windowLayer {
+    position: static;
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+  }
+}

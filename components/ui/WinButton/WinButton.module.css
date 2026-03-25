@@ -1,0 +1,279 @@
+.control {
+  --win-focus-inset: 7px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 0;
+  background: #c0c0c0;
+  color: #111111;
+  text-decoration: none;
+  box-shadow:
+    inset -2px -2px 0 #000000,
+    inset 2px 2px 0 #ffffff,
+    inset -4px -4px 0 #808080,
+    inset 4px 4px 0 #dfdfdf;
+}
+
+.control:focus {
+  outline: none;
+}
+
+.pressed {
+  box-shadow:
+    inset -2px -2px 0 #ffffff,
+    inset 2px 2px 0 #000000,
+    inset -4px -4px 0 #dfdfdf,
+    inset 4px 4px 0 #808080;
+}
+
+.control:active:not(.disabled) {
+  box-shadow:
+    inset -2px -2px 0 #ffffff,
+    inset 2px 2px 0 #000000,
+    inset -4px -4px 0 #dfdfdf,
+    inset 4px 4px 0 #808080;
+}
+
+.pressed .content,
+.pressed .iconSvg {
+  transform: translate(1px, 1px);
+}
+
+.control:active:not(.disabled) .content,
+.control:active:not(.disabled) .iconSvg {
+  transform: translate(1px, 1px);
+}
+
+.highlighted,
+.focused {
+  box-shadow:
+    inset 2px 2px 0 #000000,
+    inset -4px -4px 0 #000000,
+    inset 4px 4px 0 #ffffff,
+    inset -6px -6px 0 #808080,
+    inset 6px 6px 0 #dfdfdf;
+}
+
+.disabled {
+  color: #808080;
+}
+
+.disabled .content {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+.disabled .iconBlue {
+  fill: #dcdcdc;
+}
+
+.disabled .iconStroke {
+  stroke: #808080;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.text {
+  min-width: 108px;
+  min-height: 41px;
+  padding: 12px 14px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.taskbar {
+  min-height: 21px;
+  padding: 0 8px;
+  justify-content: flex-start;
+  box-shadow:
+    inset -2px -2px 0 #000000,
+    inset 2px 2px 0 #ffffff,
+    inset 4px 4px 0 #dfdfdf;
+}
+
+.icon {
+  --win-focus-inset: 5px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 8px;
+}
+
+.action {
+  --win-focus-inset: 7px;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 8px;
+}
+
+.titlebar {
+  --win-focus-inset: 3px;
+  width: 16px;
+  min-width: 16px;
+  height: 14px;
+  min-height: 14px;
+  padding: 0;
+  box-shadow:
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+}
+
+.scrollbar {
+  --win-focus-inset: 4px;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+  padding: 0;
+  box-shadow:
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+}
+
+.focusRing {
+  position: absolute;
+  inset: var(--win-focus-inset);
+  border: 1px dashed #000000;
+  pointer-events: none;
+}
+
+.mnemonic {
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.iconSvg {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+}
+
+.icon .iconSvg {
+  width: 24px;
+  height: 24px;
+}
+
+.iconStroke {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1.8;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.iconBlue {
+  fill: #0000b4;
+}
+
+.iconShadowStroke {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  transform: translate(1.2px, 1.2px);
+}
+
+.iconLightStroke {
+  fill: none;
+  stroke: #808080;
+  stroke-width: 1.8;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.titlebarGlyph {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 8px;
+  height: 8px;
+}
+
+.minimizeGlyph::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #111111;
+}
+
+.maximizeGlyph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #111111;
+  border-top-width: 2px;
+}
+
+.closeGlyph::before,
+.closeGlyph::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 1px;
+  height: 9px;
+  background: #111111;
+}
+
+.closeGlyph::before {
+  transform: rotate(45deg);
+}
+
+.closeGlyph::after {
+  transform: rotate(-45deg);
+}
+
+.chevronUp,
+.chevronDown,
+.chevronLeft,
+.chevronRight {
+  width: 0;
+  height: 0;
+}
+
+.chevronUp {
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid #111111;
+  border-left: 4px solid transparent;
+}
+
+.chevronDown {
+  border-top: 6px solid #111111;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.chevronLeft {
+  border-top: 4px solid transparent;
+  border-right: 6px solid #111111;
+  border-bottom: 4px solid transparent;
+}
+
+.chevronRight {
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #111111;
+}

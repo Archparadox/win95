@@ -1,0 +1,46 @@
+.panel {}
+
+.tabWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  min-height: 37px;
+  padding: 10px 14px;
+  background: #c0c0c0;
+}
+
+.tabWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tabDefault::before {
+  box-shadow:
+    inset 2px 0 0 #ffffff,
+    inset 0 2px 0 #ffffff,
+    inset -2px 0 0 #000000,
+    inset -4px 0 0 #808080;
+}
+
+.tabActive::before {
+  box-shadow:
+    inset 2px 0 0 #ffffff,
+    inset 0 2px 0 #ffffff,
+    inset -2px 0 0 #000000,
+    inset -4px 0 0 #808080,
+    inset 0 -2px 0 #c0c0c0;
+}
+
+.tabDefault {
+  margin-top: 4px;
+  min-height: 33px;
+}
+
+.tabLabel {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+}

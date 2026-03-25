@@ -1,0 +1,23 @@
+.page {
+  min-height: 100vh;
+  padding: 28px 16px 48px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%),
+    linear-gradient(90deg, #008080, #0b6868);
+}
+
+.grid {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(259px, max-content));
+  gap: 18px;
+  align-items: start;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px 10px 24px;
+  }
+}
