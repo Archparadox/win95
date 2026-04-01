@@ -1,12 +1,6 @@
 "use client";
 
 import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
-import {
-  CloseGlyph,
-  MaximizeGlyph,
-  MinimizeGlyph,
-  WinIconButton,
-} from "@/components/ui/WinButton/WinButton";
 import ScrollFrame from "../ScrollFrame/ScrollFrame";
 import styles from "./DesktopWindow.module.css";
 import type { WindowId, WindowState } from "../types";
@@ -59,33 +53,33 @@ export default function DesktopWindow(props: DesktopWindowProps) {
       <div className={styles.titleBar} onPointerDown={(event) => onDragStart(windowItem.id, event)}>
         <span>{windowItem.title}</span>
         <div className={styles.titleButtons}>
-          <WinIconButton
-            variant="titlebar"
+          <button
+            type="button"
             className={styles.titleButton}
             aria-label={`Minimize ${windowItem.title}`}
             onPointerDown={(event) => event.stopPropagation()}
             onClick={() => onMinimize(windowItem.id)}
           >
-            <MinimizeGlyph aria-hidden="true" />
-          </WinIconButton>
-          <WinIconButton
-            variant="titlebar"
+            <span className={`${styles.titleGlyph} ${styles.minimizeGlyph}`} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
             className={styles.titleButton}
             aria-label={`Maximize ${windowItem.title}`}
             onPointerDown={(event) => event.stopPropagation()}
             onClick={() => onMaximize(windowItem.id)}
           >
-            <MaximizeGlyph aria-hidden="true" />
-          </WinIconButton>
-          <WinIconButton
-            variant="titlebar"
+            <span className={`${styles.titleGlyph} ${styles.maximizeGlyph}`} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
             className={styles.titleButton}
             aria-label={`Close ${windowItem.title}`}
             onPointerDown={(event) => event.stopPropagation()}
             onClick={() => onClose(windowItem.id)}
           >
-            <CloseGlyph aria-hidden="true" />
-          </WinIconButton>
+            <span className={`${styles.titleGlyph} ${styles.closeGlyph}`} aria-hidden="true" />
+          </button>
         </div>
       </div>
       <div className={styles.windowBody}>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import WinButton from "@/components/ui/WinButton/WinButton";
 import styles from "./Taskbar.module.css";
 import type { WindowId, WindowState } from "../types";
 
@@ -32,14 +31,14 @@ export default function Taskbar(props: TaskbarProps) {
     onOpenWindow,
     onToggleWindow,
     onCloseStartMenu,
-  } = props;
+      } = props;
 
   return (
     <nav className={styles.taskbar}>
-      <WinButton
-        variant="taskbar"
-        className={`${styles.startButton} ${startMenuOpen ? styles.open : ""}`}
-        pressed={startMenuOpen}
+      <button
+        type="button"
+        className={`${styles.winButton} ${styles.startButton} ${startMenuOpen ? styles.open : ""}`}
+        aria-pressed={startMenuOpen}
         onClick={onToggleStartMenu}
       >
         <span className={styles.startLogo} aria-hidden="true">
@@ -49,7 +48,7 @@ export default function Taskbar(props: TaskbarProps) {
           <span />
         </span>
         <strong>Start</strong>
-      </WinButton>
+      </button>
       {startMenuOpen ? (
         <div className={`${styles.startMenu} ${styles.chromeWindow}`}>
           <div className={styles.startMenuSidebar}>
@@ -82,19 +81,21 @@ export default function Taskbar(props: TaskbarProps) {
         </div>
       ) : null}
       <div className={styles.windows}>
-        {windows.map((windowItem) => (
-          <WinButton
-            key={windowItem.id}
-            className={`${styles.windowButton} ${
-              activeWindowId === windowItem.id && !windowItem.minimized ? styles.selected : ""
-            }`}
-            variant="taskbar"
-            pressed={activeWindowId === windowItem.id && !windowItem.minimized}
-            onClick={() => onToggleWindow(windowItem.id)}
-          >
-            {windowItem.title}
-          </WinButton>
-        ))}
+        {windows.map((windowItem) => {
+          const active = activeWindowId === windowItem.id && !windowItem.minimized;
+
+          return (
+            <button
+              key={windowItem.id}
+              type="button"
+              className={`${styles.winButton} ${styles.windowButton} ${active ? styles.selected : ""}`}
+              aria-pressed={active}
+              onClick={() => onToggleWindow(windowItem.id)}
+            >
+              {windowItem.title}
+            </button>
+          );
+        })}
       </div>
       <div className={styles.tray} aria-label="System tray">
         <span className={`${styles.trayIcon} ${styles.speaker}`} aria-hidden="true" />

@@ -1,26 +1,11 @@
-:root {
-  --desktop: #008080;
-  --desktop-detail: #0d5f5f;
-  --surface: #c0c0c0;
-  --surface-light: #dfdfdf;
-  --surface-dark: #808080;
-  --surface-deep: #404040;
-  --text: #111111;
-  --text-muted: #303030;
-  --accent: #000080;
-  --accent-inactive: #7b7b7b;
-  --taskbar-height: 32px;
-}
-
 .desktopShell {
-  --desktop-cursor: url("/cursors/arrow.svg") 1 1, default;
   min-height: 100vh;
-  padding: 6px 8px calc(var(--taskbar-height) + 10px);
-  color: var(--text);
-  background: var(--desktop);
+  padding: 6px 8px 42px;
+  color: #111111;
+  background: #008080;
   font-size: 11px;
   line-height: 1.2;
-  cursor: var(--desktop-cursor);
+  cursor: url("/cursors/arrow.svg") 1 1, default;
 }
 
 .win95Desktop {
@@ -28,21 +13,25 @@
 }
 
 .desktopShell * {
-  cursor: var(--desktop-cursor) !important;
+  cursor: url("/cursors/arrow.svg") 1 1, default !important;
 }
 
 .loading {
-  --desktop-cursor: url("/cursors/hourglass.svg") 9 12, progress;
+  cursor: url("/cursors/hourglass.svg") 9 12, progress;
+}
+
+.loading * {
+  cursor: url("/cursors/hourglass.svg") 9 12, progress !important;
 }
 
 .desktopArea {
   position: absolute;
-  inset: 8px 0 var(--taskbar-height) 0;
+  inset: 8px 0 32px 0;
 }
 
 .windowLayer {
   position: absolute;
-  inset: 4px 0 var(--taskbar-height);
+  inset: 4px 0 32px;
   pointer-events: none;
 }
 
@@ -61,18 +50,18 @@
 .kicker,
 .sectionLabel {
   margin-bottom: 10px;
-  color: var(--text-muted);
+  color: #303030;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .insetPanel {
-  border-top: 2px solid var(--surface-dark);
-  border-left: 2px solid var(--surface-dark);
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
-  background: var(--surface);
+  background: #c0c0c0;
   padding: 6px;
 }
 
@@ -113,13 +102,13 @@
   border-left: 2px solid #ffffff;
   border-right: 2px solid #000000;
   border-bottom: 2px solid #000000;
-  background: var(--surface);
+  background: #c0c0c0;
   font-weight: 700;
   box-shadow: inset 1px 1px 0 0 #dfdfdf;
 }
 
 .activeButton {
-  background: var(--surface-light);
+  background: #dfdfdf;
 }
 
 @media (max-width: 640px) {

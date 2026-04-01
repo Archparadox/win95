@@ -1,26 +1,21 @@
-import {
-  ButtonsPanel,
-  FieldsetPanel,
-  IconsPanel,
-  InputsPanel,
-  ProgressBarPanel,
-  SliderPanel,
-  TabsPanel,
-} from "@/components/ui";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function ComponentsPage() {
   return (
     <main className={styles.page}>
-      <div className={styles.grid}>
-        <ButtonsPanel />
-        <IconsPanel />
-        <TabsPanel />
-        <ProgressBarPanel />
-        <FieldsetPanel />
-        <SliderPanel />
-        <InputsPanel />
-      </div>
+      <section className={styles.card}>
+        <p className={styles.kicker}>RESET IN PROGRESS</p>
+        <h1>Component library removed</h1>
+        <p>
+          The reusable library attempt was cleared so the project can restart from scratch in a future
+          session.
+        </p>
+        <p>
+          The homepage desktop remains the active working demo. Use <Link href="/">the homepage</Link> to review
+          the current visual direction.
+        </p>
+      </section>
     </main>
   );
 }

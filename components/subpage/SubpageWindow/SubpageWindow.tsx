@@ -1,11 +1,4 @@
 import type { ReactNode } from "react";
-import {
-  CloseGlyph,
-  MaximizeGlyph,
-  MinimizeGlyph,
-  WinIconButton,
-  WinLinkButton,
-} from "@/components/ui/WinButton/WinButton";
 import styles from "./SubpageWindow.module.css";
 
 type Action = {
@@ -36,15 +29,15 @@ export default function SubpageWindow({
         <div className={styles.titleBar}>
           <span>{title}</span>
           <div className={styles.titleButtons} aria-hidden="true">
-            <WinIconButton variant="titlebar" disabled className={styles.titleButton}>
-              <MinimizeGlyph />
-            </WinIconButton>
-            <WinIconButton variant="titlebar" disabled className={styles.titleButton}>
-              <MaximizeGlyph />
-            </WinIconButton>
-            <WinIconButton variant="titlebar" disabled className={styles.titleButton}>
-              <CloseGlyph />
-            </WinIconButton>
+            <button type="button" disabled className={styles.titleButton}>
+              <span className={`${styles.titleGlyph} ${styles.minimizeGlyph}`} />
+            </button>
+            <button type="button" disabled className={styles.titleButton}>
+              <span className={`${styles.titleGlyph} ${styles.maximizeGlyph}`} />
+            </button>
+            <button type="button" disabled className={styles.titleButton}>
+              <span className={`${styles.titleGlyph} ${styles.closeGlyph}`} />
+            </button>
           </div>
         </div>
         <div className={styles.windowBody}>
@@ -54,15 +47,15 @@ export default function SubpageWindow({
           {actions.length ? (
             <div className={styles.actions}>
               {actions.map((action) =>
-                <WinLinkButton
+                <a
                   key={action.label}
                   href={action.href}
-                  external={action.external}
-                  pressed={action.active}
-                  className={styles.button}
+                  className={`${styles.button} ${action.active ? styles.buttonActive : ""}`}
+                  target={action.external ? "_blank" : undefined}
+                  rel={action.external ? "noreferrer" : undefined}
                 >
                   {action.label}
-                </WinLinkButton>,
+                </a>,
               )}
             </div>
           ) : null}

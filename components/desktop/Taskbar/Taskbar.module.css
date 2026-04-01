@@ -1,9 +1,9 @@
 .chromeWindow {
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
-  border-right: 2px solid var(--surface-deep);
-  border-bottom: 2px solid var(--surface-deep);
-  background: var(--surface);
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  background: #c0c0c0;
 }
 
 .taskbar {
@@ -14,26 +14,52 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  min-height: var(--taskbar-height);
+  min-height: 32px;
   padding: 2px;
   border-top: 2px solid #ffffff;
-  background: var(--surface);
+  background: #c0c0c0;
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
+}
+
+.winButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 21px;
+  padding: 0 8px;
+  border: 0;
+  background: #c0c0c0;
+  color: #111111;
+  box-shadow:
+    inset -2px -2px 0 #000000,
+    inset 2px 2px 0 #ffffff,
+    inset 4px 4px 0 #dfdfdf;
+}
+
+.winButton:active {
+  box-shadow:
+    inset -2px -2px 0 #ffffff,
+    inset 2px 2px 0 #000000,
+    inset 4px 4px 0 #808080;
 }
 
 .startButton {
   gap: 4px;
   min-width: 78px;
   padding: 0 8px 0 3px;
-  background: var(--surface-light);
+  background: #dfdfdf;
   font-weight: 700;
 }
 
 .open,
 .selected {
-  background: var(--surface);
+  background: #c0c0c0;
+  box-shadow:
+    inset -2px -2px 0 #ffffff,
+    inset 2px 2px 0 #000000,
+    inset 4px 4px 0 #808080;
 }
 
 .startLogo {
@@ -52,7 +78,7 @@
 
 .startMenu {
   position: absolute;
-  bottom: calc(var(--taskbar-height) + 2px);
+  bottom: 34px;
   left: 2px;
   display: grid;
   grid-template-columns: 38px minmax(180px, 220px);
@@ -77,7 +103,7 @@
 .startMenuItems {
   display: grid;
   align-content: start;
-  background: var(--surface);
+  background: #c0c0c0;
 }
 
 .startMenuItem {
@@ -95,7 +121,7 @@
 .startMenuItem:hover,
 .startMenuItem:focus-visible {
   color: #ffffff;
-  background: var(--accent);
+  background: #000080;
   outline: none;
 }
 
@@ -114,7 +140,7 @@
   align-items: center;
   min-height: 21px;
   padding: 0 8px;
-  background: var(--surface);
+  background: #c0c0c0;
 }
 
 .windowButton {

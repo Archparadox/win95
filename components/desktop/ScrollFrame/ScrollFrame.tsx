@@ -2,13 +2,6 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import {
-  ChevronDownGlyph,
-  ChevronLeftGlyph,
-  ChevronRightGlyph,
-  ChevronUpGlyph,
-  WinIconButton,
-} from "@/components/ui/WinButton/WinButton";
 import styles from "./ScrollFrame.module.css";
 
 export default function ScrollFrame({ children }: { children: ReactNode }) {
@@ -88,14 +81,14 @@ export default function ScrollFrame({ children }: { children: ReactNode }) {
         {children}
       </div>
       <div className={`${styles.scrollbar} ${styles.vertical}`} aria-hidden="true">
-        <WinIconButton
-          variant="scrollbar"
-          className={`${styles.button} ${!hasVerticalOverflow ? styles.disabled : ""}`}
+        <button
+          type="button"
+          className={`${styles.scrollButton} ${!hasVerticalOverflow ? styles.disabled : ""}`}
           onClick={() => scrollByDelta(0, -40)}
           disabled={!hasVerticalOverflow}
         >
-          <ChevronUpGlyph className={styles.arrow} />
-        </WinIconButton>
+          <span className={`${styles.arrow} ${styles.arrowUp}`} />
+        </button>
         <div className={styles.track}>
           <span
             className={`${styles.thumb} ${!hasVerticalOverflow ? styles.disabled : ""}`}
@@ -105,24 +98,24 @@ export default function ScrollFrame({ children }: { children: ReactNode }) {
             }}
           />
         </div>
-        <WinIconButton
-          variant="scrollbar"
-          className={`${styles.button} ${!hasVerticalOverflow ? styles.disabled : ""}`}
+        <button
+          type="button"
+          className={`${styles.scrollButton} ${!hasVerticalOverflow ? styles.disabled : ""}`}
           onClick={() => scrollByDelta(0, 40)}
           disabled={!hasVerticalOverflow}
         >
-          <ChevronDownGlyph className={styles.arrow} />
-        </WinIconButton>
+          <span className={`${styles.arrow} ${styles.arrowDown}`} />
+        </button>
       </div>
       <div className={`${styles.scrollbar} ${styles.horizontal}`} aria-hidden="true">
-        <WinIconButton
-          variant="scrollbar"
-          className={`${styles.button} ${!hasHorizontalOverflow ? styles.disabled : ""}`}
+        <button
+          type="button"
+          className={`${styles.scrollButton} ${!hasHorizontalOverflow ? styles.disabled : ""}`}
           onClick={() => scrollByDelta(-40, 0)}
           disabled={!hasHorizontalOverflow}
         >
-          <ChevronLeftGlyph className={styles.arrow} />
-        </WinIconButton>
+          <span className={`${styles.arrow} ${styles.arrowLeft}`} />
+        </button>
         <div className={styles.track}>
           <span
             className={`${styles.thumb} ${!hasHorizontalOverflow ? styles.disabled : ""}`}
@@ -132,14 +125,14 @@ export default function ScrollFrame({ children }: { children: ReactNode }) {
             }}
           />
         </div>
-        <WinIconButton
-          variant="scrollbar"
-          className={`${styles.button} ${!hasHorizontalOverflow ? styles.disabled : ""}`}
+        <button
+          type="button"
+          className={`${styles.scrollButton} ${!hasHorizontalOverflow ? styles.disabled : ""}`}
           onClick={() => scrollByDelta(40, 0)}
           disabled={!hasHorizontalOverflow}
         >
-          <ChevronRightGlyph className={styles.arrow} />
-        </WinIconButton>
+          <span className={`${styles.arrow} ${styles.arrowRight}`} />
+        </button>
       </div>
       <div className={styles.corner} aria-hidden="true" />
     </div>
