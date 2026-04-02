@@ -1,0 +1,11 @@
+:root {
+  --win-motion-press: 40ms;
+  --win-motion-focus: 60ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --win-motion-press: 0ms;
+    --win-motion-focus: 0ms;
+  }
+}

@@ -1,6 +1,6 @@
-import { AboutContent } from "@/components/portfolio";
+import { AboutContent } from "@/app/_components/portfolio";
 import { profile } from "@/data/portfolio";
-import SubpageWindow from "@/components/subpage/SubpageWindow/SubpageWindow";
+import SubpageWindow from "@/app/_components/subpage/SubpageWindow/SubpageWindow";
 
 export default function AboutPage() {
   return (

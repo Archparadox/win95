@@ -1,49 +1,36 @@
 .page {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px 16px;
+  padding: 12px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 32%),
-    linear-gradient(90deg, #008080, #0b6868);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 30%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 28%),
+    var(--win-color-desktop, #008080);
+  color: var(--win-color-text, #000000);
+  font-family: var(--win-font-family-ui, Tahoma, sans-serif);
+  font-size: var(--win-font-size-ui, 11px);
+  line-height: var(--win-line-height-ui, 1.2);
 }
 
-.card {
-  width: min(100%, 560px);
+.desktop {
   display: grid;
-  gap: 12px;
-  padding: 20px 18px;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #404040;
-  border-bottom: 2px solid #404040;
-  background: #c0c0c0;
-  box-shadow: 1px 1px 0 #808080;
+  gap: 10px;
 }
 
-.card h1 {
-  font-size: 24px;
-  line-height: 1.1;
+.windowGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, max-content));
+  gap: 10px;
+  align-items: start;
 }
 
-.card p {
-  line-height: 1.5;
+.compactSection {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
 }
 
-.card a {
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.kicker {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #303030;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .page {
-    padding: 16px 10px 24px;
+    font-size: 11px;
   }
 }

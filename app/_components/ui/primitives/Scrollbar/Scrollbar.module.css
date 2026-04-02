@@ -1,0 +1,46 @@
+.root {
+  display: flex;
+  background: var(--win-color-surface, #c0c0c0);
+}
+
+.vertical {
+  width: var(--win-size-scrollbar-thickness, 32px);
+  flex-direction: column;
+}
+
+.horizontal {
+  height: var(--win-size-scrollbar-thickness, 32px);
+}
+
+.track {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  background:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.08) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 75%, transparent 75%, transparent) 0 0 / 4px 4px,
+    var(--win-color-surface-raised, #dfdfdf);
+}
+
+.vertical .track {
+  flex-direction: column;
+}
+
+.horizontal .track {
+  flex-direction: row;
+}
+
+.thumb {
+  flex-shrink: 0;
+}
+
+.vertical .thumb {
+  width: var(--win-size-scrollbar-thickness, 32px);
+  min-height: var(--win-size-scrollbar-thumb-min, 48px);
+}
+
+.horizontal .thumb {
+  height: var(--win-size-scrollbar-thickness, 32px);
+  min-width: var(--win-size-scrollbar-thumb-min, 48px);
+}

@@ -1,0 +1,39 @@
+.root {
+  background: var(--win-color-surface, #c0c0c0);
+}
+
+.raised {
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-dark, #808080),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-light, #dfdfdf);
+}
+
+.sunken {
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-darkest, #000000);
+}
+
+.field {
+  background: var(--win-color-surface-field, #ffffff);
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-darkest, #000000);
+}
+
+.flush {
+  border: 0;
+  box-shadow: none;
+}

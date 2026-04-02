@@ -1,0 +1,40 @@
+.compactHeader {
+  display: grid;
+  gap: 4px;
+  color: var(--win-color-text-inverse, #ffffff);
+}
+
+.kicker {
+  display: block;
+  font-size: var(--win-font-size-kicker, 11px);
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: 13px;
+  line-height: 1.15;
+}
+
+.compactBoard {
+  display: inline-grid;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.panelStack {
+  display: grid;
+  gap: 8px;
+}
+
+.rowWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 12px;
+  }
+}

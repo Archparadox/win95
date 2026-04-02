@@ -1,3 +1,7 @@
+@import "./_components/ui/foundations/tokens.css";
+@import "./_components/ui/foundations/resolutions.css";
+@import "./_components/ui/foundations/motion.css";
+
 html,
 body {
   max-width: 100vw;

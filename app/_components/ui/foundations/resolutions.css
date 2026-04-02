@@ -1,0 +1,12 @@
+:root,
+[data-win-resolution="800x600"] {
+  --win-size-layout-desktop-gutter: 12px;
+  --win-size-layout-taskbar-height: 32px;
+  --win-size-layout-icon-gap-y: 72px;
+}
+
+[data-win-resolution="640x480"] {
+  --win-size-layout-desktop-gutter: 10px;
+  --win-size-layout-taskbar-height: 28px;
+  --win-size-layout-icon-gap-y: 64px;
+}

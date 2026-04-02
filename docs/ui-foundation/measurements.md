@@ -1,6 +1,6 @@
 # UI Foundation Measurements
 
-This document defines the normalized foundation measurements for the first four primitives only:
+This document defines the compact runtime foundation measurements for the first four primitives only:
 
 - Window
 - Button
@@ -9,138 +9,151 @@ This document defines the normalized foundation measurements for the first four 
 
 Rules for confidence:
 
-- `Exact` means the value was directly observable from the Figma metadata or sampled design-context output.
-- `Inferred` means the value is derived from the sampled Figma code, the full-canvas screenshot, and the surrounding component geometry.
+- `Runtime exact` means the value is directly encoded in the current compact token system.
+- `Reference exact` means the value came from sampled Figma output or historical reference sampling.
+- `Inferred` means the value is derived from references and the surrounding component geometry.
+
+Implementation rule:
+
+- Compact runtime values are the source of truth.
+- Larger Figma specimen values are reference-only unless explicitly promoted into the runtime token set.
 
 ## Window
 
 ### Outer shell
 
-- Window outer border: `2px` per side. `Exact`
-- Inner bevel inset on shell: `1px` visual inset layer. `Exact`
-- Title bar height: `40px`. `Exact`
-- Title bar horizontal padding: left `8px`, right `4px`. `Exact`
-- Title bar vertical padding: `4px`. `Exact`
+- Window outer border: `2px` per side. `Runtime exact`
+- Inner bevel inset on shell: `1px` visual inset layer. `Runtime exact`
+- Title bar height: `18px`. `Runtime exact`
+- Title bar horizontal padding: left `3px`, right `2px`. `Runtime exact`
+- Title bar vertical padding: `2px`. `Runtime exact`
 - Gap between title text and actions: `8px`. `Inferred`
-- Title bar action spacing: `4px`. `Exact`
-- Window body gap between stacked sections: `24px`. `Exact`
-- Window body padding: top `20px`, right `20px`, bottom `18px`, left `20px`. `Exact`
+- Title bar action spacing: `2px`. `Runtime exact`
+- Window body gap between stacked sections: `10px`. `Runtime exact`
+- Window body padding: `8px` on all sides. `Runtime exact`
 
-### Widths visible in Figma
+### Runtime widths
 
-- Narrow specimen window width: `259px`. `Exact`
-- Wide specimen window width: `570px`. `Exact`
+- Narrow specimen window width: `260px`. `Runtime exact`
+- Wide specimen window width: `420px`. `Runtime exact`
 
 ### Section rhythm inside windows
 
-- Section title to section body gap: `16px`. `Exact`
-- Typical control stack gap inside section body: `20px`. `Exact`
-- Divider thickness: `4px`. `Exact`
+- Section title to section body gap: `8px`. `Inferred normalization`
+- Typical control stack gap inside section body: `8px` to `10px`. `Runtime exact`
+- Divider thickness: `2px`. `Runtime exact`
+
+### Secondary Figma reference
+
+- Figma sampled window titlebar: `40px`. `Reference exact`
+- Figma sampled narrow window width: `259px`. `Reference exact`
+- Figma sampled wide window width: `570px`. `Reference exact`
 
 ## Button
 
 ### Text button
 
-- Min width: `108px`. `Exact`
-- Height: `41px`. `Exact`
-- Horizontal padding: `14px`. `Exact`
-- Vertical padding: `12px`. `Exact`
-- Focus ring inset: `7px`. `Exact`
+- Min width: `75px`. `Runtime exact`
+- Height: `23px`. `Runtime exact`
+- Horizontal padding: `12px`. `Runtime exact`
+- Vertical padding: `0px`. `Runtime exact`
+- Focus ring inset: `4px`. `Runtime exact`
 
 ### Icon button
 
-- Width: `40px`. `Exact`
-- Height: `40px`. `Exact`
-- Inner padding: `8px`. `Exact`
-- Icon viewport inside button: `24px`. `Exact`
-- Focus ring inset: `5px`. `Exact`
+- Width: `23px`. `Runtime exact`
+- Height: `23px`. `Runtime exact`
+- Icon viewport inside button: `12px`. `Runtime exact`
+- Focus ring inset: `3px`. `Runtime exact`
 
 ### Action button
 
-- Width: `32px`. `Exact`
-- Height: `32px`. `Exact`
-- Inner padding: `8px`. `Exact`
-- Icon viewport inside button: `12px`. `Exact`
-- Focus ring inset: `6px`. `Inferred`
+- Width: `16px`. `Runtime exact`
+- Height: `16px`. `Runtime exact`
+- Icon viewport inside button: `8px` to `12px`. `Inferred`
+- Focus ring inset: `3px`. `Runtime exact`
 
 ### Titlebar button
 
-- In the sampled implementation, a compact titlebar control appears as `16x14` in the existing desktop runtime. `Repo value, not Figma authority`
-- In the sampled Figma-based library work, titlebar controls were normalized closer to `28x28` inside a `40px` title bar. `Inferred`
+- Runtime titlebar control: `16x14`. `Runtime exact`
+- Caption icon box: `8px`. `Runtime exact`
+- Larger Figma caption/action button family (`32px`) remains secondary reference data. `Reference exact`
 
 Decision:
 
-- For the reusable library, use the Figma window chrome proportions first.
-- Treat old desktop titlebar button sizes as legacy runtime measurements, not foundation truth.
+- For the reusable library, use the compact runtime caption/button scale.
+- Treat larger Figma caption/button sizes as proportion references, not foundation truth.
 
 ## Input
 
 ### Field shell
 
-- Base field height: `28px`. `Inferred`
-- Horizontal internal padding: `5px`. `Exact` from sampled field shell code
-- Vertical internal padding: `4px`. `Exact`
-- Focus ring inset: `3px`. `Exact`
-- Sunken border depth: `2px` outer edge pattern. `Exact`
+- Base field height: `21px`. `Runtime exact`
+- Horizontal internal padding: `3px`. `Runtime exact`
+- Vertical internal padding: `2px`. `Runtime exact`
+- Focus ring inset: `3px`. `Runtime exact`
+- Sunken border depth: `2px` outer edge pattern. `Runtime exact`
 
 ### Labeled input variants from Figma
 
-- Vertical labeled specimen block height: `59px`. `Exact`
-- Horizontal labeled specimen block height: `40px`. `Exact`
-- Input specimen width: `288px`. `Exact`
+- Vertical labeled specimen block height: `36px`. `Runtime exact`
+- Horizontal labeled specimen block height: `23px`. `Runtime exact`
+- Input specimen width: `220px`. `Runtime exact`
 
 ### Compound inputs
 
-- Number field stepper column width: `18px`. `Inferred from current implementation, visually consistent with Figma`
-- Select trigger button width: `18px`. `Inferred`
-- Color swatch size in compact field: `14px`. `Inferred from current sample implementation`
+- Number/select trigger width: `18px`. `Runtime exact`
+- Color swatch size in compact field: `14px`. `Inferred`
 
 ### Label layout
 
-- Vertical field gap: `4px`. `Exact in current implementation, visually consistent with Figma`
-- Horizontal label column width: `74px`. `Inferred normalization`
-- Horizontal label/content gap: `10px`. `Exact in current implementation, visually consistent with Figma`
+- Vertical field gap: `3px`. `Runtime exact`
+- Horizontal label column width: `68px`. `Runtime exact`
+- Horizontal label/content gap: `8px`. `Runtime exact`
+
+### Secondary Figma reference
+
+- Figma sampled vertical field height: `59px`. `Reference exact`
+- Figma sampled horizontal field height: `40px`. `Reference exact`
+- Figma sampled field width: `288px`. `Reference exact`
 
 ## Checkbox / Radio
 
 ### Shared row layout
 
-- Control column width: `16px`. `Exact in current and prior implementations`
-- Gap between control and label: `8px`. `Exact`
+- Control column width: `16px`. `Runtime exact`
+- Gap between control and label: `8px`. `Runtime exact`
 
 ### Checkbox control
 
-- Box size: `14x14`. `Exact`
-- Internal selected glyph size: `10px` target viewport, visually occupying less. `Inferred`
-- Focus treatment inset expansion around control: `4px` outward. `Exact in earlier panel implementation`
+- Box size: `13x13`. `Runtime exact`
+- Internal selected glyph size: `8px` to `10px`. `Inferred`
+- Focus treatment inset expansion around control: `6px` outward. `Runtime exact`
 
 ### Radio control
 
-- Outer size: `14x14`. `Exact`
-- Dot size: `4x4`. `Exact`
-- Shape: circle. `Exact`
+- Outer size: `13x13`. `Runtime exact`
+- Dot size: `4x4`. `Runtime exact`
+- Shape: circle. `Runtime exact`
 
 ## Typography
 
-### Figma font family
+### Runtime typography
 
-- The sampled Figma code references `font-['W95FA:Regular',sans-serif]`. `Exact`
+- Foundation font family: `Tahoma, "MS Sans Serif", "Microsoft Sans Serif", sans-serif`. `Runtime exact`
+- Body/control text size: `11px`. `Runtime exact`
+- Secondary label / kicker size: `11px`. `Runtime exact`
+- Compact specimen heading size: `11px` to `14px` depending on context. `Runtime exact + inferred`
+- Window title size: `11px`. `Runtime exact`
+- Line height: `1.2`. `Runtime exact`
+- Letter spacing: `0`. `Runtime exact`
 
-Working conclusion:
+### Secondary Figma reference
 
-- Foundation font family: `W95FA`. `Exact from sampled Figma output`
-- Fallback stack in code can still include system fonts, but `W95FA` is the design authority.
-
-### Exact type values
-
-- Body/control text size: `18px`. `Exact`
-- Secondary label / specimen annotation size: `16px`. `Exact`
-- Section heading size: `20px`. `Exact`
-- Window title size: `18px`. `Exact`
-- Line height: `normal`. `Exact`
-- Letter spacing: not explicitly surfaced in sampled Figma output. Use `0`. `Inferred`
+- Sampled Figma font family reference: `W95FA`. `Reference exact`
+- Larger sampled Figma type sizes should not override the compact runtime system by default.
 
 ## Notes
 
-- The biggest measurement uncertainty is the compact titlebar button size inside desktop runtime code; the current repo contains an older implementation that does not fully match the Figma-derived chrome.
-- For Window, Button, Input, and Checkbox / Radio, the values above should be treated as the current foundation contract unless future Figma access exposes contradictory exact measurements.
+- The old large Figma specimen values are still useful as relationship checks.
+- For Window, Button, Input, and Checkbox / Radio, the compact runtime values above are the current foundation contract unless the runtime token system itself is deliberately changed.

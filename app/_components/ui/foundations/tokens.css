@@ -1,0 +1,99 @@
+:root {
+  --win-font-family-ui: Tahoma, "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+  --win-font-size-ui: 11px;
+  --win-font-size-kicker: 11px;
+  --win-font-size-heading: 11px;
+  --win-line-height-ui: 1.2;
+  --win-font-weight-regular: 400;
+  --win-font-weight-bold: 700;
+
+  --win-color-desktop: #008080;
+  --win-color-desktop-dark: #0d5f5f;
+  --win-color-surface: #c0c0c0;
+  --win-color-surface-raised: #dfdfdf;
+  --win-color-surface-field: #ffffff;
+  --win-color-text: #000000;
+  --win-color-text-muted: #808080;
+  --win-color-text-inverse: #ffffff;
+  --win-color-titlebar-active: #000080;
+  --win-color-titlebar-inactive: #7f7f7f;
+  --win-color-border-lightest: #ffffff;
+  --win-color-border-light: #dfdfdf;
+  --win-color-border-dark: #808080;
+  --win-color-border-darkest: #000000;
+  --win-color-selection-bg: #000080;
+  --win-color-selection-fg: #ffffff;
+
+  --win-size-border-outer: 2px;
+  --win-size-border-inner: 1px;
+  --win-size-focus-inset-button: 4px;
+  --win-size-focus-inset-icon-button: 3px;
+  --win-size-focus-inset-action-button: 3px;
+  --win-size-focus-inset-field: 3px;
+
+  --win-size-titlebar-height: 18px;
+  --win-size-titlebar-padding-inline-start: 3px;
+  --win-size-titlebar-padding-inline-end: 2px;
+  --win-size-titlebar-padding-block: 2px;
+  --win-size-titlebar-action-gap: 2px;
+
+  --win-size-button-min-width: 75px;
+  --win-size-button-height: 23px;
+  --win-size-button-padding-inline: 12px;
+  --win-size-button-padding-block: 0;
+  --win-size-button-icon: 12px;
+  --win-size-icon-button: 23px;
+  --win-size-action-button: 16px;
+  --win-size-caption-button-width: 16px;
+  --win-size-caption-button-height: 14px;
+  --win-size-caption-icon: 8px;
+
+  --win-size-field-width: 220px;
+  --win-size-field-control-height: 21px;
+  --win-size-field-vertical-height: 36px;
+  --win-size-field-horizontal-height: 23px;
+  --win-size-field-label-width: 68px;
+  --win-size-field-inline-gap: 8px;
+  --win-size-field-block-gap: 3px;
+  --win-size-field-padding-inline: 3px;
+  --win-size-field-padding-block: 2px;
+  --win-size-field-trigger-width: 18px;
+  --win-size-checkbox-row-height: 19px;
+  --win-size-radio-row-height: 19px;
+  --win-size-control-column: 16px;
+  --win-size-checkbox-control: 13px;
+  --win-size-radio-dot: 4px;
+
+  --win-size-divider-thickness: 2px;
+  --win-size-scrollbar-thickness: 16px;
+  --win-size-scrollbar-thumb-min: 32px;
+
+  --win-space-1: 1px;
+  --win-space-2: 2px;
+  --win-space-4: 4px;
+  --win-space-3: 3px;
+  --win-space-6: 6px;
+  --win-space-8: 8px;
+  --win-space-10: 10px;
+  --win-space-12: 12px;
+  --win-space-14: 14px;
+  --win-space-16: 16px;
+  --win-space-18: 18px;
+  --win-space-20: 20px;
+  --win-space-24: 24px;
+  --win-space-32: 32px;
+
+  --win-size-window-width-narrow: 260px;
+  --win-size-window-width-wide: 420px;
+  --win-space-window-body-top: 8px;
+  --win-space-window-body-right: 8px;
+  --win-space-window-body-bottom: 8px;
+  --win-space-window-body-left: 8px;
+  --win-space-window-section-gap: 10px;
+  --win-space-window-title-gap: 8px;
+  --win-space-window-control-gap: 8px;
+
+  --win-size-layout-desktop-gutter: 12px;
+  --win-size-layout-taskbar-height: 32px;
+  --win-size-layout-icon-gap-y: 72px;
+}

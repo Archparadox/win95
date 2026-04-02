@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--win-color-surface, #c0c0c0);
+}
+
+.narrow {
+  width: min(100%, var(--win-size-window-width-narrow, 259px));
+}
+
+.wide {
+  width: min(100%, var(--win-size-window-width-wide, 570px));
+}
+
+.content {
+  display: grid;
+  gap: var(--win-space-window-section-gap, 24px);
+  padding:
+    var(--win-space-window-body-top, 20px)
+    var(--win-space-window-body-right, 20px)
+    var(--win-space-window-body-bottom, 18px)
+    var(--win-space-window-body-left, 20px);
+}
+
+.contentFlush {
+  gap: 0;
+  padding: var(--win-space-1, 1px);
+}
+
+.menuBar {
+  display: flex;
+  gap: var(--win-space-12, 12px);
+  padding: var(--win-space-2, 2px) var(--win-space-6, 6px);
+}
+
+.menuItem::first-letter {
+  text-decoration: underline;
+}

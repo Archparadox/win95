@@ -1,0 +1,16 @@
+.scrollDemo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px;
+  min-height: 120px;
+  background: var(--win-color-surface, #c0c0c0);
+}
+
+.verticalScrollbar {
+  height: 120px;
+}
+
+.horizontalScrollbar {
+  align-self: end;
+  width: 100%;
+}

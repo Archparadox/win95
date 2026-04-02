@@ -1,5 +1,5 @@
-import { ProjectsContent } from "@/components/portfolio";
-import SubpageWindow from "@/components/subpage/SubpageWindow/SubpageWindow";
+import { ProjectsContent } from "@/app/_components/portfolio";
+import SubpageWindow from "@/app/_components/subpage/SubpageWindow/SubpageWindow";
 
 export default function ProjectsPage() {
   return (

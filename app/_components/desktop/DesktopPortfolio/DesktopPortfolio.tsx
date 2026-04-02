@@ -2,7 +2,7 @@
 
 import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AboutContent, ProjectsContent, WorkContent } from "@/components/portfolio";
+import { AboutContent, ProjectsContent, WorkContent } from "@/app/_components/portfolio";
 import {
   desktopIcons,
   profile,

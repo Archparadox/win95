@@ -1,4 +1,4 @@
-import DesktopPortfolio from "@/components/desktop/DesktopPortfolio/DesktopPortfolio";
+import DesktopPortfolio from "@/app/_components/desktop/DesktopPortfolio/DesktopPortfolio";
 
 export default function Home() {
   return <DesktopPortfolio />;

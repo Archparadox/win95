@@ -1,5 +1,5 @@
-import { WorkContent } from "@/components/portfolio";
-import SubpageWindow from "@/components/subpage/SubpageWindow/SubpageWindow";
+import { WorkContent } from "@/app/_components/portfolio";
+import SubpageWindow from "@/app/_components/subpage/SubpageWindow/SubpageWindow";
 
 export default function WorkPage() {
   return (

@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--win-space-8, 8px);
+  min-height: var(--win-size-titlebar-height, 40px);
+  padding:
+    var(--win-size-titlebar-padding-block, 4px)
+    var(--win-size-titlebar-padding-inline-end, 4px)
+    var(--win-size-titlebar-padding-block, 4px)
+    var(--win-size-titlebar-padding-inline-start, 8px);
+  background: var(--win-color-titlebar-active, #000080);
+  color: var(--win-color-text-inverse, #ffffff);
+  font-weight: var(--win-font-weight-bold, 700);
+  line-height: 1;
+  user-select: none;
+}
+
+.inactive {
+  background: var(--win-color-titlebar-inactive, #7f7f7f);
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.controls {
+  display: inline-flex;
+  gap: var(--win-size-titlebar-action-gap, 4px);
+  flex-shrink: 0;
+}

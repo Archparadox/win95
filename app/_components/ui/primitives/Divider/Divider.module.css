@@ -1,0 +1,32 @@
+.root {
+  display: block;
+  inline-size: 100%;
+  block-size: var(--win-size-divider-thickness, 4px);
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 1px,
+      var(--win-color-border-dark, #808080) 1px,
+      var(--win-color-border-dark, #808080) 2px,
+      var(--win-color-border-lightest, #ffffff) 2px,
+      var(--win-color-border-lightest, #ffffff) 3px,
+      transparent 3px
+    );
+}
+
+.vertical {
+  inline-size: var(--win-size-divider-thickness, 4px);
+  block-size: 100%;
+  background:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 1px,
+      var(--win-color-border-dark, #808080) 1px,
+      var(--win-color-border-dark, #808080) 2px,
+      var(--win-color-border-lightest, #ffffff) 2px,
+      var(--win-color-border-lightest, #ffffff) 3px,
+      transparent 3px
+    );
+}

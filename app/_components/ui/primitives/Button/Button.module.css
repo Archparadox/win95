@@ -1,0 +1,123 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: var(--win-color-surface, #c0c0c0);
+  color: var(--win-color-text, #000000);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-dark, #808080),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-light, #dfdfdf);
+}
+
+.content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--win-space-3, 3px);
+  transition: transform var(--win-motion-press, 40ms) steps(1, end);
+}
+
+.text {
+  min-width: var(--win-size-button-min-width, 108px);
+  min-height: var(--win-size-button-height, 41px);
+  padding: var(--win-size-button-padding-block, 12px) var(--win-size-button-padding-inline, 14px);
+}
+
+.icon {
+  width: var(--win-size-icon-button, 40px);
+  min-width: var(--win-size-icon-button, 40px);
+  height: var(--win-size-icon-button, 40px);
+  min-height: var(--win-size-icon-button, 40px);
+}
+
+.action {
+  width: var(--win-size-action-button, 32px);
+  min-width: var(--win-size-action-button, 32px);
+  height: var(--win-size-action-button, 32px);
+  min-height: var(--win-size-action-button, 32px);
+}
+
+.caption {
+  width: var(--win-size-caption-button-width, 16px);
+  min-width: var(--win-size-caption-button-width, 16px);
+  height: var(--win-size-caption-button-height, 14px);
+  min-height: var(--win-size-caption-button-height, 14px);
+}
+
+.active::before,
+.root:active::before,
+.root[aria-pressed="true"]::before {
+  border-top-color: var(--win-color-border-dark, #808080);
+  border-left-color: var(--win-color-border-dark, #808080);
+  border-right-color: var(--win-color-border-lightest, #ffffff);
+  border-bottom-color: var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-darkest, #000000);
+}
+
+.active .content,
+.root:active .content,
+.root[aria-pressed="true"] .content {
+  transform: translate(1px, 1px);
+}
+
+.highlighted::before {
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-darkest, #000000),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-light, #dfdfdf),
+    inset calc(var(--win-space-2, 2px) * -1) calc(var(--win-space-2, 2px) * -1) 0 var(--win-color-border-dark, #808080),
+    inset var(--win-space-2, 2px) var(--win-space-2, 2px) 0 var(--win-color-border-lightest, #ffffff);
+}
+
+.focused::after,
+.root:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: var(--win-size-focus-inset-button, 7px);
+  border: 1px dotted currentColor;
+  pointer-events: none;
+}
+
+.icon.focused::after,
+.icon:focus-visible::after {
+  inset: var(--win-size-focus-inset-icon-button, 5px);
+}
+
+.action.focused::after,
+.caption.focused::after,
+.action:focus-visible::after,
+.caption:focus-visible::after {
+  inset: var(--win-size-focus-inset-action-button, 6px);
+}
+
+.disabled,
+.root:disabled {
+  color: var(--win-color-text-muted, #808080);
+  cursor: default;
+}
+
+.disabled .content,
+.root:disabled .content {
+  text-shadow: 1px 1px 0 var(--win-color-text-inverse, #ffffff);
+}

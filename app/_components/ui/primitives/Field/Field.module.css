@@ -1,0 +1,88 @@
+.root {
+  display: grid;
+  color: var(--win-color-text, #000000);
+}
+
+.vertical {
+  gap: var(--win-size-field-block-gap, 4px);
+  width: var(--win-size-field-width, 288px);
+}
+
+.horizontal {
+  grid-template-columns: var(--win-size-field-label-width, 74px) minmax(0, var(--win-size-field-width, 288px));
+  align-items: center;
+  gap: var(--win-size-field-inline-gap, 10px);
+}
+
+.label {
+  font-size: var(--win-font-size-ui, 11px);
+}
+
+.shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: var(--win-size-field-control-height, 28px);
+  padding: var(--win-size-field-padding-block, 4px) var(--win-size-field-padding-inline, 5px);
+  background: var(--win-color-surface-field, #ffffff);
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-dark, #808080);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-darkest, #000000);
+}
+
+.focused .shell,
+.shell:focus-within {
+  outline: 1px dotted var(--win-color-text, #000000);
+  outline-offset: calc(var(--win-size-focus-inset-field, 3px) * -1);
+}
+
+.input,
+.select {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+.input:focus,
+.select:focus {
+  outline: 0;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--win-size-field-trigger-width, 18px);
+  min-width: var(--win-size-field-trigger-width, 18px);
+  height: calc(var(--win-size-field-control-height, 21px) - 2px);
+  margin-right: calc(var(--win-size-field-padding-inline, 5px) * -1);
+  background: var(--win-color-surface, #c0c0c0);
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-dark, #808080),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-light, #dfdfdf);
+}
+
+.disabled {
+  color: var(--win-color-text-muted, #808080);
+}
+
+.disabled .input,
+.disabled .select,
+.disabled .label {
+  text-shadow: 1px 1px 0 var(--win-color-text-inverse, #ffffff);
+}

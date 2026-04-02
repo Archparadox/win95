@@ -1,0 +1,10 @@
+.root {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.disabled {
+  color: var(--win-color-text-muted, #808080);
+  filter: drop-shadow(1px 1px 0 var(--win-color-text-inverse, #ffffff));
+}
