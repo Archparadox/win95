@@ -4,22 +4,22 @@
 
 .heroGrid {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .copyStack {
   display: grid;
-  gap: 8px;
-  max-width: 34rem;
+  gap: 6px;
+  max-width: 31rem;
 }
 
 .heading {
-  font-size: 14px;
-  line-height: 1.15;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .body {
-  max-width: 38rem;
+  max-width: 31rem;
 }
 
 .kicker,
@@ -30,13 +30,13 @@
 }
 
 .specPanel {
-  padding: 8px;
+  padding: 6px;
 }
 
 .specGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 12px;
+  gap: 6px 10px;
 }
 
 @media (max-width: 900px) {

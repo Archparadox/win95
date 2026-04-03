@@ -10,7 +10,7 @@
   color: var(--win-color-text, #000000);
   font: inherit;
   line-height: 1;
-  cursor: pointer;
+  cursor: default;
   user-select: none;
 }
 
@@ -114,7 +114,7 @@
 .disabled,
 .root:disabled {
   color: var(--win-color-text-muted, #808080);
-  cursor: default;
+  pointer-events: none;
 }
 
 .disabled .content,

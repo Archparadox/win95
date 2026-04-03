@@ -7,59 +7,69 @@
 }
 
 .taskbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: var(--win-size-layout-taskbar-height, 32px);
+  padding: 2px;
+  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
+  background: var(--win-color-surface, #c0c0c0);
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  color: var(--win-color-text, #000000);
+  z-index: 1000;
+}
+
+.fixed {
   position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  min-height: 32px;
-  padding: 2px;
-  border-top: 2px solid #ffffff;
-  background: #c0c0c0;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
+}
+
+.static {
+  position: relative;
 }
 
 .winButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 21px;
+  min-height: 28px;
   padding: 0 8px;
   border: 0;
-  background: #c0c0c0;
-  color: #111111;
+  background: var(--win-color-surface, #c0c0c0);
+  color: inherit;
   box-shadow:
-    inset -2px -2px 0 #000000,
-    inset 2px 2px 0 #ffffff,
-    inset 4px 4px 0 #dfdfdf;
+    inset -2px -2px 0 var(--win-color-border-darkest, #000000),
+    inset 2px 2px 0 var(--win-color-border-lightest, #ffffff),
+    inset 4px 4px 0 var(--win-color-border-light, #dfdfdf);
+  font: inherit;
 }
 
 .winButton:active {
   box-shadow:
-    inset -2px -2px 0 #ffffff,
-    inset 2px 2px 0 #000000,
-    inset 4px 4px 0 #808080;
+    inset -2px -2px 0 var(--win-color-border-lightest, #ffffff),
+    inset 2px 2px 0 var(--win-color-border-darkest, #000000),
+    inset 4px 4px 0 var(--win-color-border-dark, #808080);
 }
 
 .startButton {
   gap: 4px;
-  min-width: 78px;
+  min-width: 70px;
   padding: 0 8px 0 3px;
-  background: #dfdfdf;
+  background: var(--win-color-surface-raised, #dfdfdf);
   font-weight: 700;
 }
 
 .open,
 .selected {
-  background: #c0c0c0;
+  background: var(--win-color-surface, #c0c0c0);
   box-shadow:
-    inset -2px -2px 0 #ffffff,
-    inset 2px 2px 0 #000000,
-    inset 4px 4px 0 #808080;
+    inset -2px -2px 0 var(--win-color-border-lightest, #ffffff),
+    inset 2px 2px 0 var(--win-color-border-darkest, #000000),
+    inset 4px 4px 0 var(--win-color-border-dark, #808080);
 }
 
 .startLogo {
@@ -68,7 +78,7 @@
   grid-template-rows: repeat(2, 7px);
   gap: 1px;
   transform: skew(-12deg);
-  box-shadow: 1px 1px 0 #000000;
+  box-shadow: 1px 1px 0 var(--win-color-border-darkest, #000000);
 }
 
 .startLogo span:nth-child(1) { background: #ff2f3b; }
@@ -92,18 +102,18 @@
   justify-content: flex-end;
   gap: 4px;
   padding: 10px 4px;
-  color: #c0c0c0;
-  background: #808080;
+  color: var(--win-color-surface, #c0c0c0);
+  background: var(--win-color-border-dark, #808080);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
 
-.startMenuSidebar strong { color: #ffffff; }
+.startMenuSidebar strong { color: var(--win-color-text-inverse, #ffffff); }
 
 .startMenuItems {
   display: grid;
   align-content: start;
-  background: #c0c0c0;
+  background: var(--win-color-surface, #c0c0c0);
 }
 
 .startMenuItem {
@@ -114,14 +124,16 @@
   padding: 2px 8px;
   border: 0;
   background: transparent;
-  color: #111111;
+  color: inherit;
+  font: inherit;
   text-align: left;
+  text-decoration: none;
 }
 
 .startMenuItem:hover,
 .startMenuItem:focus-visible {
-  color: #ffffff;
-  background: #000080;
+  color: var(--win-color-text-inverse, #ffffff);
+  background: var(--win-color-selection-bg, #000080);
   outline: none;
 }
 
@@ -131,6 +143,27 @@
   flex: 1;
   min-width: 0;
   overflow-x: auto;
+  overflow-y: visible;
+  padding-left: 2px;
+}
+
+.windowsDivider,
+.trayDivider {
+  display: block;
+  align-self: stretch;
+  width: 2px;
+  background:
+    linear-gradient(
+      to right,
+      var(--win-color-border-dark, #808080) 0,
+      var(--win-color-border-dark, #808080) 1px,
+      var(--win-color-border-lightest, #ffffff) 1px,
+      var(--win-color-border-lightest, #ffffff) 2px
+    );
+}
+
+.windowsDivider {
+  flex: 0 0 2px;
 }
 
 .windowButton,
@@ -156,11 +189,15 @@
 .tray {
   gap: 6px;
   padding: 0 6px;
-  border-top: 2px solid #808080;
-  border-left: 2px solid #808080;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid var(--win-color-border-dark, #808080);
+  border-left: 2px solid var(--win-color-border-dark, #808080);
+  border-right: 2px solid var(--win-color-border-lightest, #ffffff);
+  border-bottom: 2px solid var(--win-color-border-lightest, #ffffff);
   box-shadow: none;
+}
+
+.trayDivider {
+  width: 2px;
 }
 
 .clock {
@@ -177,6 +214,7 @@
   display: inline-block;
   width: 14px;
   height: 14px;
+  color: inherit;
 }
 
 .speaker::before {
@@ -186,7 +224,7 @@
   left: 1px;
   width: 5px;
   height: 7px;
-  background: #111111;
+  background: currentColor;
 }
 
 .speaker::after {
@@ -197,8 +235,8 @@
   width: 6px;
   height: 9px;
   background:
-    linear-gradient(45deg, transparent 45%, #111111 45%, #111111 55%, transparent 55%) 0 0 / 6px 4px no-repeat,
-    linear-gradient(-45deg, transparent 45%, #111111 45%, #111111 55%, transparent 55%) 0 5px / 6px 4px no-repeat;
+    linear-gradient(45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%) 0 0 / 6px 4px no-repeat,
+    linear-gradient(-45deg, transparent 45%, currentColor 45%, currentColor 55%, transparent 55%) 0 5px / 6px 4px no-repeat;
 }
 
 .network::before,
@@ -208,11 +246,36 @@
   left: 1px;
   width: 12px;
   height: 2px;
-  background: #111111;
+  background: currentColor;
 }
 
-.network::before { top: 4px; box-shadow: 0 4px 0 #111111; }
+.network::before { top: 4px; box-shadow: 0 4px 0 currentColor; }
 .network::after { top: 8px; width: 2px; height: 2px; left: 10px; }
+
+.activity::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid currentColor;
+  background:
+    linear-gradient(
+      to top,
+      transparent 0 40%,
+      currentColor 40% 52%,
+      transparent 52% 100%
+    );
+}
+
+.activity::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 4px;
+  height: 4px;
+  background: #12a83f;
+  box-shadow: 0 0 0 1px var(--win-color-border-darkest, #000000);
+}
 
 @media (max-width: 640px) {
   .taskbar { gap: 8px; flex-wrap: wrap; }

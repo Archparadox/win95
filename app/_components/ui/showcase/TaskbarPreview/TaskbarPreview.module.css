@@ -1,0 +1,114 @@
+.header {
+  display: grid;
+  gap: 4px;
+}
+
+.kicker {
+  margin: 0;
+  font-size: var(--win-font-size-kicker, 11px);
+  font-weight: var(--win-font-weight-bold, 700);
+  letter-spacing: 0.04em;
+}
+
+.heading {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 292px;
+  margin-top: 8px;
+  padding: 14px 12px 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(135deg, #008080 0%, #0f6e6e 100%);
+  border: 2px solid var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset -2px -2px 0 var(--win-color-border-darkest, #000000),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.32);
+  overflow: visible;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+  color: var(--win-color-text-inverse, #ffffff);
+}
+
+.noteCard {
+  display: grid;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.noteCard p {
+  margin: 0;
+  max-width: 24ch;
+}
+
+.noteLabel {
+  font-weight: var(--win-font-weight-bold, 700);
+  text-transform: uppercase;
+}
+
+.iconStack {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+  padding-top: 6px;
+}
+
+.desktopIcon {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  min-height: 42px;
+  padding-top: 22px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.desktopIcon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 22px;
+  height: 18px;
+  background:
+    linear-gradient(180deg, #ffffff 0 24%, #c0c0c0 24% 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-left: 1px solid rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  box-shadow: inset -1px -1px 0 rgba(128, 128, 128, 0.9);
+}
+
+.taskbar {
+  margin-inline: -12px;
+}
+
+@media (max-width: 840px) {
+  .notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .noteCard p {
+    max-width: none;
+  }
+
+  .iconStack {
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 14px;
+  }
+}

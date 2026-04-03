@@ -1,43 +1,80 @@
 "use client";
 
 import Image from "next/image";
+import classNames from "@/app/_components/ui/utils/classNames";
 import styles from "./Taskbar.module.css";
-import type { WindowId, WindowState } from "../types";
 
-type DesktopIconItem = { id: string; label: string };
+export type TaskbarStartItem = {
+  id: string;
+  label: string;
+  iconSrc: string;
+  href?: string;
+};
+
+export type TaskbarWindowButton = {
+  id: string;
+  title: string;
+  active?: boolean;
+};
+
+export type TaskbarTrayItem = {
+  id: string;
+  label: string;
+  icon: "speaker" | "network" | "activity";
+};
+
+const DEFAULT_TRAY_ITEMS: TaskbarTrayItem[] = [
+  { id: "speaker", label: "Volume", icon: "speaker" },
+  { id: "network", label: "Network", icon: "network" },
+  { id: "activity", label: "System activity", icon: "activity" },
+];
 
 type TaskbarProps = {
-  desktopIcons: DesktopIconItem[];
-  windows: WindowState[];
-  activeWindowId: WindowId | null;
-  startMenuOpen: boolean;
+  className?: string;
   clock: string;
-  linkedin: string;
-  onToggleStartMenu: () => void;
-  onOpenWindow: (id: WindowId) => void;
-  onToggleWindow: (id: WindowId) => void;
+  position?: "fixed" | "static";
+  startItems: TaskbarStartItem[];
+  startMenuBrand?: { label: string; version: string };
+  startMenuOpen: boolean;
+  trayItems?: TaskbarTrayItem[];
+  windowButtons: TaskbarWindowButton[];
   onCloseStartMenu: () => void;
+  onSelectStartItem?: (id: string) => void;
+  onSelectWindow: (id: string) => void;
+  onToggleStartMenu: () => void;
 };
 
 export default function Taskbar(props: TaskbarProps) {
   const {
-    desktopIcons,
-    windows,
-    activeWindowId,
-    startMenuOpen,
+    className,
     clock,
-    linkedin,
-    onToggleStartMenu,
-    onOpenWindow,
-    onToggleWindow,
     onCloseStartMenu,
-      } = props;
+    onSelectStartItem,
+    onSelectWindow,
+    onToggleStartMenu,
+    position = "fixed",
+    startItems,
+    startMenuBrand = { label: "Windows", version: "95" },
+    startMenuOpen,
+    trayItems = DEFAULT_TRAY_ITEMS,
+    windowButtons,
+  } = props;
 
   return (
-    <nav className={styles.taskbar}>
+    <nav
+      className={classNames(
+        styles.taskbar,
+        styles[position],
+        className,
+      )}
+    >
       <button
         type="button"
-        className={`${styles.winButton} ${styles.startButton} ${startMenuOpen ? styles.open : ""}`}
+        className={classNames(
+          styles.winButton,
+          styles.startButton,
+          startMenuOpen && styles.open,
+        )}
         aria-pressed={startMenuOpen}
         onClick={onToggleStartMenu}
       >
@@ -52,54 +89,81 @@ export default function Taskbar(props: TaskbarProps) {
       {startMenuOpen ? (
         <div className={`${styles.startMenu} ${styles.chromeWindow}`}>
           <div className={styles.startMenuSidebar}>
-            <span>Windows</span>
-            <strong>95</strong>
+            <span>{startMenuBrand.label}</span>
+            <strong>{startMenuBrand.version}</strong>
           </div>
           <div className={styles.startMenuItems}>
-            {desktopIcons.map((icon) => (
-              <button
-                key={icon.id}
-                type="button"
-                className={styles.startMenuItem}
-                onClick={() => onOpenWindow(icon.id as WindowId)}
-              >
-                <Image src={`/icons/${icon.id}.svg`} alt="" width={20} height={20} aria-hidden="true" />
-                <span>{icon.label}</span>
-              </button>
-            ))}
-            <a
-              className={styles.startMenuItem}
-              href={linkedin}
-              target="_blank"
-              rel="noreferrer"
-              onClick={onCloseStartMenu}
-            >
-              <Image src="/icons/contact.svg" alt="" width={20} height={20} aria-hidden="true" />
-              <span>LinkedIn</span>
-            </a>
+            {startItems.map((item) =>
+              item.href ? (
+                <a
+                  key={item.id}
+                  className={styles.startMenuItem}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={onCloseStartMenu}
+                >
+                  <Image
+                    src={item.iconSrc}
+                    alt=""
+                    width={20}
+                    height={20}
+                    aria-hidden="true"
+                  />
+                  <span>{item.label}</span>
+                </a>
+              ) : (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={styles.startMenuItem}
+                  onClick={() => {
+                    onSelectStartItem?.(item.id);
+                    onCloseStartMenu();
+                  }}
+                >
+                  <Image
+                    src={item.iconSrc}
+                    alt=""
+                    width={20}
+                    height={20}
+                    aria-hidden="true"
+                  />
+                  <span>{item.label}</span>
+                </button>
+              ),
+            )}
           </div>
         </div>
       ) : null}
       <div className={styles.windows}>
-        {windows.map((windowItem) => {
-          const active = activeWindowId === windowItem.id && !windowItem.minimized;
-
-          return (
-            <button
-              key={windowItem.id}
-              type="button"
-              className={`${styles.winButton} ${styles.windowButton} ${active ? styles.selected : ""}`}
-              aria-pressed={active}
-              onClick={() => onToggleWindow(windowItem.id)}
-            >
-              {windowItem.title}
-            </button>
-          );
-        })}
+        <span className={styles.windowsDivider} aria-hidden="true" />
+        {windowButtons.map((windowItem) => (
+          <button
+            key={windowItem.id}
+            type="button"
+            className={classNames(
+              styles.winButton,
+              styles.windowButton,
+              windowItem.active && styles.selected,
+            )}
+            aria-pressed={windowItem.active}
+            onClick={() => onSelectWindow(windowItem.id)}
+          >
+            {windowItem.title}
+          </button>
+        ))}
       </div>
       <div className={styles.tray} aria-label="System tray">
-        <span className={`${styles.trayIcon} ${styles.speaker}`} aria-hidden="true" />
-        <span className={`${styles.trayIcon} ${styles.network}`} aria-hidden="true" />
+        <span className={styles.trayDivider} aria-hidden="true" />
+        {trayItems.map((item) => (
+          <span
+            key={item.id}
+            role="img"
+            aria-label={item.label}
+            className={classNames(styles.trayIcon, styles[item.icon])}
+          />
+        ))}
         <div className={styles.clock} aria-label="Clock">
           {clock}
         </div>

@@ -32,7 +32,6 @@ export default function Button({
         active && styles.active,
         focused && styles.focused,
         highlighted && styles.highlighted,
-        disabled && styles.disabled,
         className,
       )}
       disabled={disabled}

@@ -45,6 +45,12 @@ const WINDOW_MENUS: Record<WindowId, string[]> = {
   contact: ["File", "Edit", "View", "Help"],
 };
 
+const TASKBAR_TRAY_ITEMS = [
+  { id: "speaker", label: "Volume", icon: "speaker" },
+  { id: "network", label: "Network", icon: "network" },
+  { id: "activity", label: "System activity", icon: "activity" },
+] as const;
+
 function windowContent(id: WindowId): ReactNode {
   switch (id) {
     case "about":
@@ -115,6 +121,24 @@ export default function DesktopPortfolio() {
     () => windows.reduce<WindowState | null>((top, current) => (!top || current.z > top.z ? current : top), null)?.id ?? null,
     [windows],
   );
+  const taskbarWindowButtons = windows.map((windowItem) => ({
+    id: windowItem.id,
+    title: windowItem.title,
+    active: activeWindowId === windowItem.id && !windowItem.minimized,
+  }));
+  const taskbarStartItems = [
+    ...desktopIcons.map((icon) => ({
+      id: icon.id,
+      label: icon.label,
+      iconSrc: `/icons/${icon.id}.svg`,
+    })),
+    {
+      id: "linkedin",
+      label: "LinkedIn",
+      iconSrc: "/icons/contact.svg",
+      href: profile.linkedin,
+    },
+  ];
 
   useEffect(() => {
     const intervalId = window.setInterval(() => setClock(getClockString()), 30000);
@@ -394,16 +418,15 @@ export default function DesktopPortfolio() {
         ))}
       </section>
       <Taskbar
-        desktopIcons={desktopIcons}
-        windows={windows}
-        activeWindowId={activeWindowId}
-        startMenuOpen={startMenuOpen}
         clock={clock}
-        linkedin={profile.linkedin}
-        onToggleStartMenu={() => setStartMenuOpen((current) => !current)}
-        onOpenWindow={openWindow}
-        onToggleWindow={toggleMinimize}
         onCloseStartMenu={() => setStartMenuOpen(false)}
+        onSelectStartItem={(id) => openWindow(id as WindowId)}
+        onSelectWindow={(id) => toggleMinimize(id as WindowId)}
+        onToggleStartMenu={() => setStartMenuOpen((current) => !current)}
+        startItems={taskbarStartItems}
+        startMenuOpen={startMenuOpen}
+        trayItems={[...TASKBAR_TRAY_ITEMS]}
+        windowButtons={taskbarWindowButtons}
       />
     </main>
   );

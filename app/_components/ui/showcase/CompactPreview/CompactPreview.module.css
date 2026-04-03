@@ -1,7 +1,8 @@
 .compactHeader {
   display: grid;
-  gap: 4px;
-  color: var(--win-color-text-inverse, #ffffff);
+  gap: 2px;
+  margin-bottom: 4px;
+  color: var(--win-color-text, #000000);
 }
 
 .kicker {
@@ -11,30 +12,30 @@
 }
 
 .heading {
-  font-size: 13px;
-  line-height: 1.15;
+  font-size: 11px;
+  line-height: 1.2;
 }
 
 .compactBoard {
   display: inline-grid;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.12);
+  padding: 0;
+  background: transparent;
 }
 
 .panelStack {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .rowWrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 
 @media (max-width: 640px) {
   .heading {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
