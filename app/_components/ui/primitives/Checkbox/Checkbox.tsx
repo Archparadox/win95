@@ -3,14 +3,33 @@ import Icon from "../../icons";
 import classNames from "../../utils/classNames";
 import styles from "./Checkbox.module.css";
 
-type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
+type CheckboxProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "type"
+> & {
   focused?: boolean;
   label: ReactNode;
 };
 
-export default function Checkbox({ checked, className, disabled = false, focused = false, label, onChange, ...props }: CheckboxProps) {
+export default function Checkbox({
+  checked,
+  className,
+  disabled = false,
+  focused = false,
+  label,
+  onChange,
+  ...props
+}: CheckboxProps) {
   return (
-    <label className={classNames(styles.root, checked && styles.checked, focused && styles.focused, disabled && styles.disabled, className)}>
+    <label
+      className={classNames(
+        styles.root,
+        checked && styles.checked,
+        focused && styles.focused,
+        disabled && styles.disabled,
+        className,
+      )}
+    >
       <input
         checked={checked}
         className={styles.input}

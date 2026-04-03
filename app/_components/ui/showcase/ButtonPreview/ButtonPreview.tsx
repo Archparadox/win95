@@ -9,15 +9,23 @@ export default function ButtonPreview() {
         <div className={styles.rowWrap}>
           <Button>Default</Button>
           <Button highlighted>Highlighted</Button>
-          <Button active>Pressed</Button>
+          <Button active>Active</Button>
+          <Button focused>Focused</Button>
           <Button disabled>Disabled</Button>
         </div>
         <Divider />
         <div className={styles.rowWrap}>
           <Button icon={<Icon name="check" size="large" />} variant="icon" />
+          <Button active icon={<Icon name="check" size="large" />} variant="icon" />
+          <Button focused icon={<Icon name="check" size="large" />} variant="icon" />
+          <Button disabled icon={<Icon disabled name="check" size="large" />} variant="icon" />
+        </div>
+        <Divider />
+        <div className={styles.rowWrap}>
+          <Button icon={<Icon name="close" />} variant="action" />
+          <Button active icon={<Icon name="close" />} variant="action" />
           <Button focused icon={<Icon name="close" />} variant="action" />
-          <Button icon={<Icon name="minimize" />} variant="caption" />
-          <Button disabled icon={<Icon disabled name="maximize" />} variant="caption" />
+          <Button disabled icon={<Icon disabled name="close" />} variant="action" />
         </div>
       </div>
     </WindowFrame>

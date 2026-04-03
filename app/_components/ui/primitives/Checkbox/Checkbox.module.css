@@ -38,7 +38,8 @@
   opacity: 0;
 }
 
-.checked .indicator {
+.checked .indicator,
+.input:checked + .box .indicator {
   opacity: 1;
 }
 

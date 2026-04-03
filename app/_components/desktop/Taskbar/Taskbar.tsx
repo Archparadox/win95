@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Button } from "@/app/_components/ui";
 import classNames from "@/app/_components/ui/utils/classNames";
 import styles from "./Taskbar.module.css";
 
@@ -68,12 +69,11 @@ export default function Taskbar(props: TaskbarProps) {
         className,
       )}
     >
-      <button
-        type="button"
+      <Button
+        active={startMenuOpen}
         className={classNames(
-          styles.winButton,
-          styles.startButton,
-          startMenuOpen && styles.open,
+          styles.taskbarButton,
+          styles.startTaskButton,
         )}
         aria-pressed={startMenuOpen}
         onClick={onToggleStartMenu}
@@ -85,7 +85,7 @@ export default function Taskbar(props: TaskbarProps) {
           <span />
         </span>
         <strong>Start</strong>
-      </button>
+      </Button>
       {startMenuOpen ? (
         <div className={`${styles.startMenu} ${styles.chromeWindow}`}>
           <div className={styles.startMenuSidebar}>
@@ -139,19 +139,18 @@ export default function Taskbar(props: TaskbarProps) {
       <div className={styles.windows}>
         <span className={styles.windowsDivider} aria-hidden="true" />
         {windowButtons.map((windowItem) => (
-          <button
+          <Button
             key={windowItem.id}
-            type="button"
+            active={windowItem.active}
             className={classNames(
-              styles.winButton,
-              styles.windowButton,
-              windowItem.active && styles.selected,
+              styles.taskbarButton,
+              styles.windowTaskButton,
             )}
             aria-pressed={windowItem.active}
             onClick={() => onSelectWindow(windowItem.id)}
           >
             {windowItem.title}
-          </button>
+          </Button>
         ))}
       </div>
       <div className={styles.tray} aria-label="System tray">

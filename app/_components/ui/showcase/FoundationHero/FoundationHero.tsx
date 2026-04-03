@@ -18,7 +18,7 @@ export default function FoundationHero() {
             This page checks whether the rebuilt controls still feel like Windows 95 before they replace the older homepage pieces.
           </p>
         </div>
-        <BevelBox className={styles.specPanel} tone="sunken">
+        <BevelBox className={styles.specPanel} selectable tone="sunken">
           <div className={styles.specGrid}>
             <div>
               <span className={styles.specLabel}>Scale</span>

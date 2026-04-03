@@ -27,6 +27,12 @@ body {
   margin: 0;
 }
 
+body,
+body * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -37,6 +43,15 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+input,
+textarea,
+select,
+[data-allow-selection="true"],
+[data-allow-selection="true"] * {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 ::selection {

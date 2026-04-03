@@ -32,30 +32,14 @@
   position: relative;
 }
 
-.winButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.taskbarButton.taskbarButton {
   min-height: 28px;
+  min-width: 0;
   padding: 0 8px;
-  border: 0;
-  background: var(--win-color-surface, #c0c0c0);
-  color: inherit;
-  box-shadow:
-    inset -2px -2px 0 var(--win-color-border-darkest, #000000),
-    inset 2px 2px 0 var(--win-color-border-lightest, #ffffff),
-    inset 4px 4px 0 var(--win-color-border-light, #dfdfdf);
   font: inherit;
 }
 
-.winButton:active {
-  box-shadow:
-    inset -2px -2px 0 var(--win-color-border-lightest, #ffffff),
-    inset 2px 2px 0 var(--win-color-border-darkest, #000000),
-    inset 4px 4px 0 var(--win-color-border-dark, #808080);
-}
-
-.startButton {
+.startTaskButton.startTaskButton {
   gap: 4px;
   min-width: 70px;
   padding: 0 8px 0 3px;
@@ -63,13 +47,12 @@
   font-weight: 700;
 }
 
-.open,
-.selected {
+.startTaskButton > span {
+  gap: 4px;
+}
+
+.startTaskButton[aria-pressed="true"] {
   background: var(--win-color-surface, #c0c0c0);
-  box-shadow:
-    inset -2px -2px 0 var(--win-color-border-lightest, #ffffff),
-    inset 2px 2px 0 var(--win-color-border-darkest, #000000),
-    inset 4px 4px 0 var(--win-color-border-dark, #808080);
 }
 
 .startLogo {
@@ -166,7 +149,7 @@
   flex: 0 0 2px;
 }
 
-.windowButton,
+.windowTaskButton,
 .clock,
 .tray {
   display: inline-flex;
@@ -176,14 +159,20 @@
   background: #c0c0c0;
 }
 
-.windowButton {
+.windowTaskButton.windowTaskButton {
   justify-content: flex-start;
   min-width: 132px;
   max-width: 200px;
   overflow: hidden;
+  text-align: left;
+}
+
+.windowTaskButton > span {
+  width: 100%;
+  justify-content: flex-start;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  text-align: left;
 }
 
 .tray {
