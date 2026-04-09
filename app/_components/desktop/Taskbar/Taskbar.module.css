@@ -39,36 +39,6 @@
   font: inherit;
 }
 
-.startTaskButton.startTaskButton {
-  gap: 4px;
-  min-width: 70px;
-  padding: 0 8px 0 3px;
-  background: var(--win-color-surface-raised, #dfdfdf);
-  font-weight: 700;
-}
-
-.startTaskButton > span {
-  gap: 4px;
-}
-
-.startTaskButton[aria-pressed="true"] {
-  background: var(--win-color-surface, #c0c0c0);
-}
-
-.startLogo {
-  display: grid;
-  grid-template-columns: repeat(2, 7px);
-  grid-template-rows: repeat(2, 7px);
-  gap: 1px;
-  transform: skew(-12deg);
-  box-shadow: 1px 1px 0 var(--win-color-border-darkest, #000000);
-}
-
-.startLogo span:nth-child(1) { background: #ff2f3b; }
-.startLogo span:nth-child(2) { background: #35a84f; }
-.startLogo span:nth-child(3) { background: #2d67ff; }
-.startLogo span:nth-child(4) { background: #f9d647; }
-
 .startMenu {
   position: absolute;
   bottom: 34px;

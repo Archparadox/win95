@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/app/_components/ui";
 import classNames from "@/app/_components/ui/utils/classNames";
+import StartButton from "./StartButton";
 import styles from "./Taskbar.module.css";
 
 export type TaskbarStartItem = {
@@ -69,23 +70,11 @@ export default function Taskbar(props: TaskbarProps) {
         className,
       )}
     >
-      <Button
+      <StartButton
         active={startMenuOpen}
-        className={classNames(
-          styles.taskbarButton,
-          styles.startTaskButton,
-        )}
-        aria-pressed={startMenuOpen}
+        className={styles.taskbarButton}
         onClick={onToggleStartMenu}
-      >
-        <span className={styles.startLogo} aria-hidden="true">
-          <span />
-          <span />
-          <span />
-          <span />
-        </span>
-        <strong>Start</strong>
-      </Button>
+      />
       {startMenuOpen ? (
         <div className={`${styles.startMenu} ${styles.chromeWindow}`}>
           <div className={styles.startMenuSidebar}>

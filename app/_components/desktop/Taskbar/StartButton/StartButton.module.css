@@ -1,0 +1,19 @@
+.startTaskButton.startTaskButton {
+  gap: 5px;
+  min-width: 70px;
+  padding: 0 8px 0 4px;
+  background: var(--win-color-surface-raised, #dfdfdf);
+  font-weight: 700;
+}
+
+.startTaskButton > span {
+  gap: 5px;
+}
+
+.startTaskButton[aria-pressed="true"] {
+  background: var(--win-color-surface, #c0c0c0);
+}
+
+.startLogo {
+  flex-shrink: 0;
+}
