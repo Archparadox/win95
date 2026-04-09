@@ -1,6 +1,7 @@
 .root {
   display: flex;
   background: var(--win-color-surface, #c0c0c0);
+  user-select: none;
 }
 
 .vertical {
@@ -18,8 +19,19 @@
   flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
+  overflow: hidden;
   background:
-    linear-gradient(45deg, rgba(0, 0, 0, 0.08) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 75%, transparent 75%, transparent) 0 0 / 4px 4px,
+    linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.08) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.08) 50%,
+      rgba(0, 0, 0, 0.08) 75%,
+      transparent 75%,
+      transparent
+    )
+    0 0 / 4px 4px,
     var(--win-color-surface-raised, #dfdfdf);
 }
 
@@ -31,16 +43,33 @@
   flex-direction: row;
 }
 
-.thumb {
+.button {
   flex-shrink: 0;
 }
 
+.thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-shrink: 0;
+  touch-action: none;
+  cursor: grab;
+}
+
+.thumb:active {
+  cursor: grabbing;
+}
+
+.root[data-disabled] .thumb {
+  cursor: default;
+}
+
 .vertical .thumb {
-  width: var(--win-size-scrollbar-thickness, 32px);
+  width: 100%;
   min-height: var(--win-size-scrollbar-thumb-min, 48px);
 }
 
 .horizontal .thumb {
-  height: var(--win-size-scrollbar-thickness, 32px);
+  height: 100%;
   min-width: var(--win-size-scrollbar-thumb-min, 48px);
 }

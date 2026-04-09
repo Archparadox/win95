@@ -1,7 +1,7 @@
 "use client";
 
 import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
-import ScrollFrame from "../ScrollFrame/ScrollFrame";
+import { ScrollFrame } from "@/app/_components/ui";
 import styles from "./DesktopWindow.module.css";
 import type { WindowId, WindowState } from "../types";
 
