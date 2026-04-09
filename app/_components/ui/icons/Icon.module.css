@@ -1,10 +1,19 @@
 .root {
-  display: inline-flex;
+  display: inline-block;
   flex-shrink: 0;
-  color: currentColor;
+  background-color: currentColor;
+  vertical-align: middle;
+  mask-image: var(--icon-src);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-src);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
 
 .disabled {
-  color: var(--win-color-text-muted, #808080);
+  background-color: var(--win-color-text-muted, #808080);
   filter: drop-shadow(1px 1px 0 var(--win-color-text-inverse, #ffffff));
 }
