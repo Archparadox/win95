@@ -24,3 +24,4 @@ npm run start
 - Portfolio content lives in `data/portfolio.ts`
 - Shared content renderers live in `components/portfolio`
 - Windows 95-style UI primitives live in `components/ui`
+- Planning-note workflow for agents lives in `AGENTS.md` and `docs/niarbdnoces/README.md`
