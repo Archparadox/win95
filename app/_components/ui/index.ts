@@ -2,6 +2,7 @@ export { default as Icon } from "./icons";
 export { default as BevelBox } from "./primitives/BevelBox";
 export { default as Button } from "./primitives/Button";
 export { default as Checkbox } from "./primitives/Checkbox";
+export { default as Combobox } from "./primitives/Combobox";
 export { default as Divider } from "./primitives/Divider";
 export { default as Field } from "./primitives/Field";
 export { default as Radio } from "./primitives/Radio";

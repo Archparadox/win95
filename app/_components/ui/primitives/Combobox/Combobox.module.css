@@ -1,0 +1,209 @@
+.root {
+  display: grid;
+  color: var(--win-color-text, #000000);
+}
+
+.vertical {
+  gap: var(--win-size-field-block-gap, 4px);
+  width: var(--win-size-field-width, 288px);
+}
+
+.horizontal {
+  grid-template-columns: var(--win-size-field-label-width, 74px) minmax(
+      0,
+      var(--win-size-field-width, 288px)
+    );
+  align-items: center;
+  gap: var(--win-size-field-inline-gap, 10px);
+}
+
+.label {
+  font-size: var(--win-font-size-ui, 11px);
+}
+
+.control {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.focused .control,
+.control:focus-within {
+  outline: 1px dotted var(--win-color-text, #000000);
+  outline-offset: calc(var(--win-size-focus-inset-field, 3px) * -1);
+}
+
+.triggerSurface {
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--win-size-field-control-height, 21px);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.valueShell {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: var(--win-size-field-padding-block, 4px) 4px
+    var(--win-size-field-padding-block, 4px)
+    var(--win-size-field-padding-inline, 5px);
+  background: var(--win-color-surface-field, #ffffff);
+  border-top: 1px solid var(--win-color-border-dark, #808080);
+  border-left: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-dark, #808080);
+  border-right: 0;
+  border-bottom: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1)
+      calc(var(--win-size-border-inner, 1px) * -1) 0
+      var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0
+      var(--win-color-border-darkest, #000000);
+}
+
+.value {
+  width: 100%;
+  min-width: 0;
+  line-height: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.placeholder {
+  color: var(--win-color-text-muted, #808080);
+}
+
+.trigger {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--win-size-field-trigger-width, 18px);
+  min-width: var(--win-size-field-trigger-width, 18px);
+  height: 19px;
+  background: var(--win-color-surface, #c0c0c0);
+  border-top: 1px solid var(--win-color-border-darkest);
+  border-right: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-dark, #808080);
+  border-bottom: 3px solid var(--win-color-border-dark, #808080);
+  color: var(--win-color-text, #000000);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1) 0
+      var(--win-color-border-dark, #808080),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0
+      var(--win-color-border-light, #dfdfdf);
+  cursor: default;
+}
+
+.triggerPressed,
+.trigger:active {
+  top: 1px;
+  right: 0;
+  border-top-color: var(--win-color-border-darkest);
+  border-left-color: var(--win-color-border-darkest);
+  border-right-color: var(--win-color-border-dark);
+  border-bottom-color: var(--win-color-border-lightest, #ffffff);
+  box-shadow:
+    inset 2px calc(var(--win-size-border-inner, 1px) * -1) 0
+      var(--win-color-border-dark),
+    inset 1px var(--win-size-border-inner, 1px) 1px
+      var(--win-color-border-darkest, #000000);
+}
+/* 
+.triggerPressed,
+.trigger:active {
+  border-top-color: var(--win-color-border-darkest, #000000);
+  border-right-color: var(--win-color-border-dark, #808080);
+  border-bottom-color: var(--win-color-border-dark, #808080);
+
+  box-shadow:
+    inset 1px 1px 0 var(--win-color-border-darkest, #000000),
+    inset -1px -1px 0 var(--win-color-border-dark, #808080);
+
+  transform: translate(1px, 1px);
+} */
+
+.triggerIcon {
+  transition: transform var(--win-motion-press, 40ms) steps(1, end);
+}
+
+.triggerPressed .triggerIcon,
+.trigger:active .triggerIcon {
+  transform: translate(1px, 1px);
+}
+
+.triggerSurface:focus {
+  outline: 0;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(100% - 1px);
+  border-top: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-dark, #808080);
+  border-left: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-dark, #808080);
+  border-right: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-lightest, #ffffff);
+  border-bottom: var(--win-size-border-outer, 2px) solid
+    var(--win-color-border-lightest, #ffffff);
+  background: var(--win-color-surface-field, #ffffff);
+  box-shadow:
+    inset calc(var(--win-size-border-inner, 1px) * -1)
+      calc(var(--win-size-border-inner, 1px) * -1) 0
+      var(--win-color-border-light, #dfdfdf),
+    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0
+      var(--win-color-border-darkest, #000000);
+  z-index: 1;
+  max-height: 112px;
+  overflow-y: auto;
+}
+
+.option {
+  width: 100%;
+  min-height: 18px;
+  border: 0;
+  padding: 1px 4px 2px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.optionActive,
+.option:hover,
+.option:focus-visible {
+  background: var(--win-color-selection-bg, #000080);
+  color: var(--win-color-selection-fg, #ffffff);
+  outline: 0;
+}
+
+.disabled {
+  color: var(--win-color-text-muted, #808080);
+}
+
+.disabled .value,
+.disabled .label,
+.disabled .trigger {
+  text-shadow: 1px 1px 0 var(--win-color-text-inverse, #ffffff);
+}

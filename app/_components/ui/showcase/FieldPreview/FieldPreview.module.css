@@ -1,4 +1,68 @@
+.runWindow {
+  width: min(100%, 250px);
+  --win-size-titlebar-height: 18px;
+  --win-size-titlebar-padding-inline-start: 3px;
+  --win-size-titlebar-padding-inline-end: 3px;
+  --win-size-titlebar-padding-block: 1px;
+  --win-size-titlebar-action-gap: 2px;
+  --win-size-caption-button-width: 16px;
+  --win-size-caption-button-height: 14px;
+  --win-size-caption-icon: 7px;
+  --win-space-window-body-top: 7px;
+  --win-space-window-body-right: 8px;
+  --win-space-window-body-bottom: 8px;
+  --win-space-window-body-left: 8px;
+  --win-space-window-section-gap: 7px;
+}
+
+.closeButton {
+  pointer-events: none;
+}
+
 .panelStack {
   display: grid;
+  gap: 7px;
+}
+
+.intro {
+  display: flex;
+  align-items: flex-start;
   gap: 8px;
+}
+
+.introIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.introCopy {
+  max-width: 188px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.runField {
+  --win-size-field-label-width: 34px;
+  --win-size-field-width: 188px;
+  --win-size-field-trigger-width: 18px;
+  --win-size-field-control-height: 21px;
+  --win-size-field-padding-inline: 3px;
+  --win-size-field-padding-block: 1px;
+
+  margin-bottom: 1px;
+}
+
+.actionRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.dialogButton {
+  --win-size-button-min-width: 75px;
+  --win-size-button-height: 23px;
+  --win-size-button-padding-inline: 10px;
+  --win-size-focus-inset-button: 5px;
 }
