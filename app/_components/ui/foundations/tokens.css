@@ -23,18 +23,18 @@
 
   --win-color-desktop: #008080;
   --win-color-desktop-dark: #0d5f5f;
-  --win-color-surface: #c0c0c0;
-  --win-color-surface-raised: #dfdfdf;
-  --win-color-surface-field: #ffffff;
-  --win-color-text: #000000;
-  --win-color-text-muted: #808080;
-  --win-color-text-inverse: #ffffff;
-  --win-color-titlebar-active: #000080;
-  --win-color-titlebar-inactive: #7f7f7f;
-  --win-color-border-lightest: #ffffff;
-  --win-color-border-light: #dfdfdf;
-  --win-color-border-dark: #808080;
-  --win-color-border-darkest: #000000;
+  --win-color-surface: #cac6cb;
+  --win-color-surface-raised: #dedcde;
+  --win-color-surface-field: #fcfcfc;
+  --win-color-text: #263238;
+  --win-color-text-muted: #a099a1;
+  --win-color-text-inverse: #fcfcfc;
+  --win-color-titlebar-active: #a099a1;
+  --win-color-titlebar-inactive: #a099a1;
+  --win-color-border-lightest: #fcfcfc;
+  --win-color-border-light: #dedcde;
+  --win-color-border-dark: #a099a1;
+  --win-color-border-darkest: #263238;
   --win-color-selection-bg: #000080;
   --win-color-selection-fg: #ffffff;
 

@@ -1,6 +1,6 @@
 .root {
   display: flex;
-  background: var(--win-color-surface, #c0c0c0);
+  background: var(--win-color-surface, #cac6cb);
   user-select: none;
 }
 
@@ -23,16 +23,23 @@
   background:
     linear-gradient(
       45deg,
-      rgba(0, 0, 0, 0.08) 25%,
+      #efeeef 25%,
       transparent 25%,
-      transparent 50%,
-      rgba(0, 0, 0, 0.08) 50%,
-      rgba(0, 0, 0, 0.08) 75%,
       transparent 75%,
-      transparent
+      #efeeef 75%,
+      #efeeef
     )
-    0 0 / 4px 4px,
-    var(--win-color-surface-raised, #dfdfdf);
+    0 0 / 6px 6px,
+    linear-gradient(
+      45deg,
+      #efeeef 25%,
+      transparent 25%,
+      transparent 75%,
+      #efeeef 75%,
+      #efeeef
+    )
+    3px 3px / 6px 6px,
+    var(--win-color-surface-field, #fcfcfc);
 }
 
 .vertical .track {
@@ -45,6 +52,15 @@
 
 .button {
   flex-shrink: 0;
+  background: var(--win-color-surface, #cac6cb);
+}
+
+.button:not(:disabled) {
+  box-shadow:
+    inset -1.5px -1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset -3px -3px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-surface-raised, #dedcde);
 }
 
 .thumb {
@@ -54,6 +70,12 @@
   flex-shrink: 0;
   touch-action: none;
   cursor: grab;
+  background: var(--win-color-surface, #cac6cb);
+  box-shadow:
+    inset -1.5px -1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset -3px -3px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-surface-raised, #dedcde);
 }
 
 .thumb:active {

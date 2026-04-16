@@ -6,27 +6,18 @@
   min-width: 0;
   border: 0;
   padding: 0;
-  background: var(--win-color-surface, #c0c0c0);
-  color: var(--win-color-text, #000000);
+  background: var(--win-color-surface, #cac6cb);
+  color: var(--win-color-text, #263238);
   font: inherit;
   line-height: 1;
   outline: none;
   cursor: default;
   user-select: none;
-}
-
-.root::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-top: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
-  border-left: var(--win-size-border-outer, 2px) solid var(--win-color-border-lightest, #ffffff);
-  border-right: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
-  border-bottom: var(--win-size-border-outer, 2px) solid var(--win-color-border-darkest, #000000);
   box-shadow:
-    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-dark, #808080),
-    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-light, #dfdfdf);
+    inset -1.5px -1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset -3px -3px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-surface, #cac6cb);
 }
 
 .content {
@@ -35,6 +26,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--win-space-3, 3px);
+  width: 100%;
+  padding: 0 !important;
+  border: 1px dotted transparent;
   transition: transform var(--win-motion-press, 40ms) steps(1, end);
 }
 
@@ -65,16 +59,14 @@
   min-height: var(--win-size-caption-button-height, 14px);
 }
 
-.active::before,
-.root:active::before,
-.root[aria-pressed="true"]::before {
-  border-top-color: var(--win-color-border-dark, #808080);
-  border-left-color: var(--win-color-border-dark, #808080);
-  border-right-color: var(--win-color-border-lightest, #ffffff);
-  border-bottom-color: var(--win-color-border-lightest, #ffffff);
+.active,
+.root:active,
+.root[aria-pressed="true"] {
   box-shadow:
-    inset calc(var(--win-size-border-inner, 1px) * -1) calc(var(--win-size-border-inner, 1px) * -1) 0 var(--win-color-border-light, #dfdfdf),
-    inset var(--win-size-border-inner, 1px) var(--win-size-border-inner, 1px) 0 var(--win-color-border-darkest, #000000);
+    inset -1.5px -1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset -3px -3px 0 0 var(--win-color-surface, #cac6cb),
+    inset 3px 3px 0 0 var(--win-color-border-dark, #a099a1);
 }
 
 .active .content,
@@ -83,36 +75,24 @@
   transform: translate(1px, 1px);
 }
 
-.highlighted::before {
+.highlighted,
+.root:focus-visible,
+.focused {
   box-shadow:
-    inset calc(var(--win-space-2, 2px) * -1) calc(var(--win-space-2, 2px) * -1) 0 var(--win-color-border-dark, #808080),
-    inset var(--win-space-2, 2px) var(--win-space-2, 2px) 0 var(--win-color-border-lightest, #ffffff);
+    inset -3px -3px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset -4.5px -4.5px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-border-lightest, #fcfcfc);
 }
 
-.focused::after,
-.root:focus-visible::after {
-  content: "";
-  position: absolute;
-  inset: var(--win-size-focus-inset-button, 7px);
-  border: 1px dotted currentColor;
-  pointer-events: none;
-}
-
-.icon.focused::after,
-.icon:focus-visible::after {
-  inset: var(--win-size-focus-inset-icon-button, 5px);
-}
-
-.action.focused::after,
-.caption.focused::after,
-.action:focus-visible::after,
-.caption:focus-visible::after {
-  inset: var(--win-size-focus-inset-action-button, 6px);
+.focused .content,
+.root:focus-visible .content {
+  border-color: currentColor;
 }
 
 .disabled,
 .root:disabled {
-  color: var(--win-color-text-muted, #808080);
+  color: var(--win-color-text-muted, #a099a1);
   pointer-events: none;
 }
 

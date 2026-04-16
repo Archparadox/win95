@@ -3,24 +3,42 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--win-space-8, 8px);
-  min-height: var(--win-size-titlebar-height, 40px);
-  padding:
-    var(--win-size-titlebar-padding-block, 4px)
-    var(--win-size-titlebar-padding-inline-end, 4px)
-    var(--win-size-titlebar-padding-block, 4px)
-    var(--win-size-titlebar-padding-inline-start, 8px);
-  background: var(--win-color-titlebar-active, #000080);
-  color: var(--win-color-text-inverse, #ffffff);
+  min-height: var(--win-size-titlebar-height, 18px);
+  padding: 0 var(--win-size-titlebar-padding-inline-end, 3px) 0 var(--win-size-titlebar-padding-inline-start, 3px);
+  background: #050080;
+  color: var(--win-color-text-inverse, #fcfcfc);
   font-weight: var(--win-font-weight-bold, 700);
   line-height: 1;
   user-select: none;
 }
 
 .inactive {
-  background: var(--win-color-titlebar-inactive, #7f7f7f);
+  background: var(--win-color-titlebar-inactive, #a099a1);
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: var(--win-size-titlebar-height, 18px);
+}
+
+.titleContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.titleIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.titleText {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -28,6 +46,6 @@
 
 .controls {
   display: inline-flex;
-  gap: var(--win-size-titlebar-action-gap, 4px);
+  gap: var(--win-size-titlebar-action-gap, 2px);
   flex-shrink: 0;
 }

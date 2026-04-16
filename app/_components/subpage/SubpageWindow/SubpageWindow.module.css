@@ -8,92 +8,17 @@
     linear-gradient(90deg, #008080, #0d5f5f);
 }
 
-.chromeWindow {
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #404040;
-  border-bottom: 2px solid #404040;
-  background: #c0c0c0;
-  box-shadow: 1px 1px 0 0 #808080;
-}
-
 .window {
   width: min(100%, 880px);
 }
 
-.titleBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 20px;
-  padding: 2px 4px;
-  color: #ffffff;
-  background: linear-gradient(90deg, #000080, #1084d0);
-  font-size: 11px;
-  font-weight: 700;
+.chromeWindow {
+  padding: 6px;
 }
 
 .titleButtons {
   display: flex;
-  gap: 4px;
-}
-
-.titleButton {
-  width: 16px;
-  min-width: 16px;
-  height: 14px;
-  min-height: 14px;
-  padding: 0;
-  border: 0;
-  background: #c0c0c0;
-  cursor: default;
-  box-shadow:
-    inset -1px -1px 0 #000000,
-    inset 1px 1px 0 #ffffff;
-}
-
-.titleGlyph {
-  position: relative;
-  display: block;
-  width: 8px;
-  height: 8px;
-}
-
-.minimizeGlyph::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: #111111;
-}
-
-.maximizeGlyph::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid #111111;
-  border-top-width: 2px;
-}
-
-.closeGlyph::before,
-.closeGlyph::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 3px;
-  width: 1px;
-  height: 9px;
-  background: #111111;
-}
-
-.closeGlyph::before {
-  transform: rotate(45deg);
-}
-
-.closeGlyph::after {
-  transform: rotate(-45deg);
+  gap: 2px;
 }
 
 .windowBody {
@@ -126,24 +51,24 @@
   justify-content: center;
   min-height: 21px;
   padding: 1px 10px;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #000000;
-  border-bottom: 2px solid #000000;
-  background: #c0c0c0;
-  color: #111111;
+  background: var(--win-color-surface, #cac6cb);
+  color: var(--win-color-text, #263238);
   text-decoration: none;
   font-size: 11px;
   line-height: 1;
   font-weight: 700;
-  box-shadow: inset 1px 1px 0 0 #dfdfdf;
+  box-shadow:
+    inset -1.5px -1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset -3px -3px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-surface-raised, #dedcde);
 }
 
 .buttonActive,
 .button:active {
-  border-top-color: #000000;
-  border-left-color: #000000;
-  border-right-color: #ffffff;
-  border-bottom-color: #ffffff;
-  box-shadow: inset 1px 1px 0 0 #808080;
+  box-shadow:
+    inset -1.5px -1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset -3px -3px 0 0 var(--win-color-surface, #cac6cb),
+    inset 3px 3px 0 0 var(--win-color-border-dark, #a099a1);
 }
