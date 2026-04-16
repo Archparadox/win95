@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AboutContent, ProjectsContent, WorkContent } from "@/app/_components/portfolio";
@@ -43,6 +44,13 @@ const WINDOW_MENUS: Record<WindowId, string[]> = {
   work: ["File", "Edit", "View", "History", "Help"],
   projects: ["File", "Edit", "View", "Project", "Help"],
   contact: ["File", "Edit", "View", "Help"],
+};
+
+const WINDOW_TITLE_ICONS: Record<WindowId, string> = {
+  about: "/icons/about.svg",
+  work: "/icons/about.svg",
+  projects: "/icons/about.svg",
+  contact: "/icons/about.svg",
 };
 
 const TASKBAR_TRAY_ITEMS = [
@@ -406,6 +414,15 @@ export default function DesktopPortfolio() {
             windowItem={windowItem}
             active={windowItem.id === activeWindowId}
             menuItems={WINDOW_MENUS[windowItem.id]}
+            titleIcon={
+              <Image
+                alt=""
+                aria-hidden="true"
+                height={16}
+                src={WINDOW_TITLE_ICONS[windowItem.id]}
+                width={16}
+              />
+            }
             onFocus={focusWindow}
             onDragStart={startDrag}
             onMinimize={toggleMinimize}
