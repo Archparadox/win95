@@ -1,4 +1,4 @@
-import { BevelBox, WindowFrame } from "@/app/_components/ui";
+import { InsetSurface, WindowFrame } from "@/app/_components/ui";
 import CaptionControls from "../CaptionControls";
 import styles from "./FoundationHero.module.css";
 
@@ -18,7 +18,7 @@ export default function FoundationHero() {
             This page checks whether the rebuilt controls still feel like Windows 95 before they replace the older homepage pieces.
           </p>
         </div>
-        <BevelBox className={styles.specPanel} selectable tone="sunken">
+        <InsetSurface className={styles.specPanel} selectable>
           <div className={styles.specGrid}>
             <div>
               <span className={styles.specLabel}>Scale</span>
@@ -37,7 +37,7 @@ export default function FoundationHero() {
               <strong>Homepage + Win95</strong>
             </div>
           </div>
-        </BevelBox>
+        </InsetSurface>
       </div>
     </WindowFrame>
   );

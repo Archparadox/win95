@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import BevelBox from "../BevelBox";
+import RaisedSurface from "../RaisedSurface";
 import TitleBar from "../TitleBar";
 import classNames from "../../utils/classNames";
 import styles from "./WindowFrame.module.css";
@@ -11,9 +11,12 @@ type WindowFrameProps = HTMLAttributes<HTMLDivElement> & {
   controls?: ReactNode;
   contentClassName?: string;
   contentFlush?: boolean;
+  footer?: ReactNode;
+  footerClassName?: string;
   menuBar?: readonly string[];
   size?: WindowSize;
   title: ReactNode;
+  titleIcon?: ReactNode;
 };
 
 export default function WindowFrame({
@@ -23,14 +26,17 @@ export default function WindowFrame({
   contentClassName,
   contentFlush = false,
   controls,
+  footer,
+  footerClassName,
   menuBar,
   size = "wide",
   title,
+  titleIcon,
   ...props
 }: WindowFrameProps) {
   return (
-    <BevelBox className={classNames(styles.root, styles[size], className)} {...props}>
-      <TitleBar active={active} controls={controls} title={title} />
+    <RaisedSurface className={classNames(styles.root, styles[size], className)} {...props}>
+      <TitleBar active={active} controls={controls} title={title} titleIcon={titleIcon} />
       {menuBar ? (
         <div className={styles.menuBar}>
           {menuBar.map((item) => (
@@ -41,6 +47,7 @@ export default function WindowFrame({
         </div>
       ) : null}
       <div className={classNames(styles.content, contentFlush && styles.contentFlush, contentClassName)}>{children}</div>
-    </BevelBox>
+      {footer ? <div className={classNames(styles.footer, footerClassName)}>{footer}</div> : null}
+    </RaisedSurface>
   );
 }

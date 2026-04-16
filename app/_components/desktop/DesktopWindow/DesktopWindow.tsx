@@ -1,7 +1,7 @@
 "use client";
 
 import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
-import { ScrollFrame } from "@/app/_components/ui";
+import { Button, Icon, RaisedSurface, ScrollFrame, TitleBar } from "@/app/_components/ui";
 import styles from "./DesktopWindow.module.css";
 import type { WindowId, WindowState } from "../types";
 
@@ -9,6 +9,7 @@ type DesktopWindowProps = {
   windowItem: WindowState;
   active: boolean;
   menuItems: string[];
+  titleIcon?: ReactNode;
   children: ReactNode;
   onFocus: (id: WindowId) => void;
   onDragStart: (id: WindowId, event: ReactPointerEvent<HTMLDivElement>) => void;
@@ -23,6 +24,7 @@ export default function DesktopWindow(props: DesktopWindowProps) {
     windowItem,
     active,
     menuItems,
+    titleIcon,
     children,
     onFocus,
     onDragStart,
@@ -44,54 +46,56 @@ export default function DesktopWindow(props: DesktopWindowProps) {
 
   return (
     <article
-      className={`${styles.window} ${styles.desktopWindow} ${styles.chromeWindow} ${
+      className={`${styles.window} ${styles.desktopWindow} ${
         windowItem.maximized ? styles.maximized : ""
       } ${active ? styles.active : styles.inactive}`}
       style={style}
       onMouseDown={() => onFocus(windowItem.id)}
     >
-      <div className={styles.titleBar} onPointerDown={(event) => onDragStart(windowItem.id, event)}>
-        <span>{windowItem.title}</span>
-        <div className={styles.titleButtons}>
-          <button
-            type="button"
-            className={styles.titleButton}
-            aria-label={`Minimize ${windowItem.title}`}
-            onPointerDown={(event) => event.stopPropagation()}
-            onClick={() => onMinimize(windowItem.id)}
-          >
-            <span className={`${styles.titleGlyph} ${styles.minimizeGlyph}`} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className={styles.titleButton}
-            aria-label={`Maximize ${windowItem.title}`}
-            onPointerDown={(event) => event.stopPropagation()}
-            onClick={() => onMaximize(windowItem.id)}
-          >
-            <span className={`${styles.titleGlyph} ${styles.maximizeGlyph}`} aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            className={styles.titleButton}
-            aria-label={`Close ${windowItem.title}`}
-            onPointerDown={(event) => event.stopPropagation()}
-            onClick={() => onClose(windowItem.id)}
-          >
-            <span className={`${styles.titleGlyph} ${styles.closeGlyph}`} aria-hidden="true" />
-          </button>
+      <RaisedSurface className={styles.chromeWindow}>
+        <TitleBar
+          active={active}
+          className={styles.titleBar}
+          controls={
+            <div className={styles.titleButtons}>
+              <Button
+                aria-label={`Minimize ${windowItem.title}`}
+                icon={<Icon name="minimize" size="small" />}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={() => onMinimize(windowItem.id)}
+                variant="caption"
+              />
+              <Button
+                aria-label={`Maximize ${windowItem.title}`}
+                icon={<Icon name="maximize" size="small" />}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={() => onMaximize(windowItem.id)}
+                variant="caption"
+              />
+              <Button
+                aria-label={`Close ${windowItem.title}`}
+                icon={<Icon name="close" size="small" />}
+                onPointerDown={(event) => event.stopPropagation()}
+                onClick={() => onClose(windowItem.id)}
+                variant="caption"
+              />
+            </div>
+          }
+          onPointerDown={(event) => onDragStart(windowItem.id, event)}
+          title={windowItem.title}
+          titleIcon={titleIcon}
+        />
+        <div className={styles.windowBody}>
+          <div className={styles.menuBar} aria-hidden="true">
+            {menuItems.map((item) => (
+              <span key={item} className={styles.menuItem}>
+                {item}
+              </span>
+            ))}
+          </div>
+          <ScrollFrame>{children}</ScrollFrame>
         </div>
-      </div>
-      <div className={styles.windowBody}>
-        <div className={styles.menuBar} aria-hidden="true">
-          {menuItems.map((item) => (
-            <span key={item} className={styles.menuItem}>
-              {item}
-            </span>
-          ))}
-        </div>
-        <ScrollFrame>{children}</ScrollFrame>
-      </div>
+      </RaisedSurface>
       {!windowItem.maximized ? (
         <button
           type="button"

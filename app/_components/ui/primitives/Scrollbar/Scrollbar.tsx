@@ -7,8 +7,8 @@ import type {
 } from "react";
 import Icon from "../../icons";
 import classNames from "../../utils/classNames";
-import BevelBox from "../BevelBox";
 import Button from "../Button";
+import RaisedSurface from "../RaisedSurface";
 import styles from "./Scrollbar.module.css";
 
 type ScrollbarDirection = -1 | 1;
@@ -86,7 +86,7 @@ export default function Scrollbar({
         variant="action"
       />
       <div className={styles.track} onPointerDown={handleTrackPointerDown} ref={trackRef}>
-        <BevelBox
+        <RaisedSurface
           className={styles.thumb}
           onPointerDown={handleThumbPointerDown}
           style={

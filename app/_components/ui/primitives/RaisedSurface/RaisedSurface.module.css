@@ -1,0 +1,8 @@
+.root {
+  background: var(--win-color-surface, #cac6cb);
+  box-shadow:
+    inset -1.5px -1.5px 0 0 var(--win-color-border-darkest, #263238),
+    inset 1.5px 1.5px 0 0 var(--win-color-border-lightest, #fcfcfc),
+    inset -3px -3px 0 0 var(--win-color-border-dark, #a099a1),
+    inset 3px 3px 0 0 var(--win-color-surface-raised, #dedcde);
+}
