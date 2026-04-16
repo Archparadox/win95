@@ -1,5 +1,19 @@
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("https://assets.codepen.io/345377/ms-sans-serif.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("https://assets.codepen.io/345377/ms-sans-serif-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
-  --win-font-family-ui: Tahoma, "MS Sans Serif", "Microsoft Sans Serif", sans-serif;
+  --win-font-family-ui: "MS Sans Serif", sans-serif;
   --win-font-size-ui: 11px;
   --win-font-size-kicker: 11px;
   --win-font-size-heading: 11px;
